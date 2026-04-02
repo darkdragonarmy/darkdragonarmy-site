@@ -61,7 +61,7 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../images/dragon-background.jpg');
+    background-image: url('images/dragon-background.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
