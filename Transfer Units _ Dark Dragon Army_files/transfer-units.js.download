@@ -1,0 +1,354 @@
+/**
+ * Transfer Units - Habbo Agency Rank Converter
+ *
+ * Rank data is loaded from agencies-data/{key}.json files.
+ * Rank numbers are the universal conversion key — rank #N in agency A = rank #N in agency B.
+ *
+ * AGENCIES WHOSE ACTUAL RANK NAMES COULD NOT BE VERIFIED:
+ * - HIA, USDF, UN, HDA, TWH, CAF, FBI, FIS, INTERPOL, MoM, USM, CDA
+ *   These use generic themed rank structures as placeholders.
+ *   Replace the corresponding JSON file with actual rank names when available.
+ *
+ * AGENCIES WITH VERIFIED REAL DATA:
+ * - DDA (Dark Dragon Army) — Full ranklist with 90 LR + 50 HR
+ * - DEA (Drug Enforcement Agency) — Non-IC (10 ranks) + IC (5 ranks)
+ */
+
+const AGENCY_KEYS = [
+    "dda", "dea", "hia", "usdf", "un",
+    "hda", "twh", "caf", "fbi", "fis",
+    "interpol", "mom", "usm", "cda", "hss"
+];
+
+let AGENCIES = {};
+
+// =============================================================================
+// UI LOGIC  (runs after data is loaded)
+// =============================================================================
+
+const fromAgencySelect = document.getElementById("from-agency");
+const fromBranchSelect = document.getElementById("from-branch");
+const fromRankSelect   = document.getElementById("from-rank");
+const toAgencySelect   = document.getElementById("to-agency");
+const toBranchSelect   = document.getElementById("to-branch");
+const swapBtn          = document.getElementById("swap-btn");
+
+const fromRankNumber = document.getElementById("from-rank-number");
+const fromRankName   = document.getElementById("from-rank-name");
+const fromRankTier   = document.getElementById("from-rank-tier");
+const toRankNumber   = document.getElementById("to-rank-number");
+const toRankName     = document.getElementById("to-rank-name");
+const toRankTier     = document.getElementById("to-rank-tier");
+
+function populateAgencyDropdowns() {
+    const agencyKeys = Object.keys(AGENCIES);
+    agencyKeys.sort((a, b) => AGENCIES[a].name.localeCompare(AGENCIES[b].name));
+
+    for (const key of agencyKeys) {
+        const agency = AGENCIES[key];
+        const label = `${agency.name} (${agency.shortName})${agency.verified ? "" : " *"}`;
+
+        fromAgencySelect.appendChild(new Option(label, key));
+        toAgencySelect.appendChild(new Option(label, key));
+    }
+}
+
+// Returns the hierarchyTier ("lr" or "hr") for a branch
+function getTier(agencyKey, branchKey) {
+    return AGENCIES[agencyKey]?.branches[branchKey]?.hierarchyTier || "lr";
+}
+
+function populateBranches(agencyKey, branchSelect) {
+    branchSelect.innerHTML = '<option value="">— Select Branch —</option>';
+
+    if (!agencyKey) { branchSelect.disabled = true; return; }
+
+    const agency = AGENCIES[agencyKey];
+    if (!agency) return;
+
+    for (const [branchKey, branch] of Object.entries(agency.branches)) {
+        branchSelect.appendChild(new Option(branch.name, branchKey));
+    }
+
+    branchSelect.disabled = false;
+
+    if (Object.keys(agency.branches).length === 1) {
+        branchSelect.selectedIndex = 1;
+        branchSelect.dispatchEvent(new Event("change"));
+    }
+}
+
+// After populating the "to" branch dropdown, try to auto-select the branch
+// whose tier matches the currently selected "from" branch.
+function autoMatchToBranch() {
+    const fromAgencyKey = fromAgencySelect.value;
+    const fromBranchKey = fromBranchSelect.value;
+    const toAgencyKey   = toAgencySelect.value;
+
+    if (!fromBranchKey || !toAgencyKey) return;
+
+    const wantedTier = getTier(fromAgencyKey, fromBranchKey);
+    const toBranches = AGENCIES[toAgencyKey]?.branches;
+    if (!toBranches) return;
+
+    // Find first branch in target that matches the tier
+    for (const [branchKey, branch] of Object.entries(toBranches)) {
+        if (branch.hierarchyTier === wantedTier) {
+            toBranchSelect.value = branchKey;
+            toBranchSelect.dispatchEvent(new Event("change"));
+            return;
+        }
+    }
+}
+
+function populateRanks(agencyKey, branchKey, rankSelect) {
+    rankSelect.innerHTML = '<option value="">— Select Rank —</option>';
+
+    if (!agencyKey || !branchKey) { rankSelect.disabled = true; return; }
+
+    const agency = AGENCIES[agencyKey];
+    if (!agency) return;
+
+    const branch = agency.branches[branchKey];
+    if (!branch) return;
+
+    let currentTier = null;
+    for (const rank of branch.ranks) {
+        if (rank.tier !== currentTier) {
+            currentTier = rank.tier;
+            const optGroup = document.createElement("optgroup");
+            optGroup.label = rank.tier;
+            rankSelect.appendChild(optGroup);
+        }
+
+        const opt = new Option(`#${rank.number} — ${rank.name}`, rank.number);
+        const lastGroup = rankSelect.querySelector("optgroup:last-of-type");
+        if (lastGroup) {
+            lastGroup.appendChild(opt);
+        } else {
+            rankSelect.appendChild(opt);
+        }
+    }
+
+    rankSelect.disabled = false;
+}
+
+function updateFromDisplay() {
+    const agencyKey = fromAgencySelect.value;
+    const branchKey = fromBranchSelect.value;
+    const rankNum   = parseInt(fromRankSelect.value);
+
+    if (!agencyKey || !branchKey || isNaN(rankNum)) {
+        fromRankNumber.textContent = "—";
+        fromRankName.textContent   = "Select a rank above";
+        fromRankTier.textContent   = "";
+        return;
+    }
+
+    const rank = AGENCIES[agencyKey].branches[branchKey].ranks.find(r => r.number === rankNum);
+    if (rank) {
+        fromRankNumber.textContent = `#${rank.number}`;
+        fromRankName.textContent   = rank.name;
+        fromRankTier.textContent   = rank.tier;
+    }
+
+    updateConversion();
+}
+
+function updateConversion() {
+    const fromAgencyKey = fromAgencySelect.value;
+    const fromBranchKey = fromBranchSelect.value;
+    const rankNum       = parseInt(fromRankSelect.value);
+    const toAgencyKey   = toAgencySelect.value;
+    const toBranchKey   = toBranchSelect.value;
+
+    if (!fromAgencyKey || !fromBranchKey || isNaN(rankNum) || !toAgencyKey || !toBranchKey) {
+        toRankNumber.textContent = "—";
+        toRankName.textContent   = "Select agencies and rank";
+        toRankTier.textContent   = "";
+        return;
+    }
+
+    const fromBranch = AGENCIES[fromAgencyKey].branches[fromBranchKey];
+    const toBranch   = AGENCIES[toAgencyKey].branches[toBranchKey];
+
+    // Tier mismatch check
+    const fromTier = fromBranch.hierarchyTier || "lr";
+    const toTier   = toBranch.hierarchyTier   || "lr";
+    if (fromTier !== toTier) {
+        toRankNumber.textContent = "—";
+        toRankName.textContent   = `Tier mismatch: comparing ${fromTier.toUpperCase()} to ${toTier.toUpperCase()}`;
+        toRankTier.textContent   = "Select matching branch tiers for a valid conversion.";
+        document.getElementById("to-rank-display").classList.add("has-result");
+        return;
+    }
+
+    // Find source rank's index in its branch
+    const fromIndex = fromBranch.ranks.findIndex(r => r.number === rankNum);
+    if (fromIndex === -1) {
+        toRankNumber.textContent = "—";
+        toRankName.textContent   = "Source rank not found";
+        toRankTier.textContent   = "";
+        return;
+    }
+
+    // Scale proportionally: position 0.0 (first) → 1.0 (last)
+    const fromTotal = fromBranch.ranks.length;
+    const toTotal   = toBranch.ranks.length;
+    const position  = fromTotal === 1 ? 0 : fromIndex / (fromTotal - 1); // 0.0–1.0
+    const toIndex   = Math.round(position * (toTotal - 1));               // nearest equivalent
+    const toRank    = toBranch.ranks[toIndex];
+
+    toRankNumber.textContent = `#${toRank.number}`;
+    toRankName.textContent   = toRank.name;
+    toRankTier.textContent   = toRank.tier;
+
+    // Notes
+    const notes = [];
+    if (fromTotal !== toTotal) {
+        const pct = Math.round(position * 100);
+        notes.push(`${pct}% through a ${fromTotal}-rank branch → ${toTotal}-rank branch`);
+    }
+    // DDA coequal parallel path note
+    if (fromBranch.coequal && toBranch.coequal) {
+        notes.push("Both are coequal parallel LR paths — rank positions are directly equivalent");
+    } else if (fromBranch.coequal || toBranch.coequal) {
+        notes.push("One branch is a DDA parallel LR path");
+    }
+    if (notes.length > 0) {
+        toRankTier.textContent += `  (${notes.join(" · ")})`;
+    }
+
+    document.getElementById("to-rank-display").classList.add("has-result");
+}
+
+function swapAgencies() {
+    const fromAgency = fromAgencySelect.value;
+    const fromBranch = fromBranchSelect.value;
+    const fromRank   = fromRankSelect.value;
+    const toAgency   = toAgencySelect.value;
+    const toBranch   = toBranchSelect.value;
+
+    fromAgencySelect.value = toAgency;
+    fromAgencySelect.dispatchEvent(new Event("change"));
+
+    setTimeout(() => {
+        fromBranchSelect.value = toBranch;
+        fromBranchSelect.dispatchEvent(new Event("change"));
+        setTimeout(() => {
+            if (fromRank) {
+                fromRankSelect.value = fromRank;
+                fromRankSelect.dispatchEvent(new Event("change"));
+            }
+        }, 10);
+    }, 10);
+
+    toAgencySelect.value = fromAgency;
+    toAgencySelect.dispatchEvent(new Event("change"));
+
+    setTimeout(() => {
+        toBranchSelect.value = fromBranch;
+        toBranchSelect.dispatchEvent(new Event("change"));
+    }, 30);
+}
+
+function populateAgenciesGrid() {
+    const grid = document.getElementById("agencies-grid");
+    const agencyKeys = Object.keys(AGENCIES);
+    agencyKeys.sort((a, b) => AGENCIES[a].name.localeCompare(AGENCIES[b].name));
+
+    for (const key of agencyKeys) {
+        const agency = AGENCIES[key];
+        const branchCount = Object.keys(agency.branches).length;
+        let totalRanks = 0;
+        for (const branch of Object.values(agency.branches)) {
+            totalRanks += branch.ranks.length;
+        }
+
+        const card = document.createElement("div");
+        card.className = "agency-card";
+        card.innerHTML = `
+            <div class="agency-card-header">
+                <span class="agency-short">${agency.shortName}</span>
+                ${agency.verified
+                    ? '<span class="agency-verified">✓ Verified</span>'
+                    : '<span class="agency-unverified">⚠ Placeholder</span>'}
+            </div>
+            <h4>${agency.name}</h4>
+            <div class="agency-stats">
+                <span>${branchCount} branch${branchCount > 1 ? "es" : ""}</span>
+                <span>${totalRanks} ranks</span>
+            </div>
+            ${agency.website
+                ? `<a href="${agency.website}" target="_blank" class="agency-link">Visit Portal →</a>`
+                : ""}
+        `;
+        grid.appendChild(card);
+    }
+}
+
+// =============================================================================
+// EVENT LISTENERS
+// =============================================================================
+
+fromAgencySelect.addEventListener("change", () => {
+    fromRankSelect.innerHTML = '<option value="">— Select Rank —</option>';
+    fromRankSelect.disabled  = true;
+    populateBranches(fromAgencySelect.value, fromBranchSelect);
+    updateFromDisplay();
+});
+
+fromBranchSelect.addEventListener("change", () => {
+    populateRanks(fromAgencySelect.value, fromBranchSelect.value, fromRankSelect);
+    // Re-run tier auto-match for "to" side whenever "from" branch changes
+    if (toAgencySelect.value) {
+        populateBranches(toAgencySelect.value, toBranchSelect);
+        autoMatchToBranch();
+    }
+    updateFromDisplay();
+});
+
+fromRankSelect.addEventListener("change", updateFromDisplay);
+
+toAgencySelect.addEventListener("change", () => {
+    populateBranches(toAgencySelect.value, toBranchSelect);
+    autoMatchToBranch();
+    updateConversion();
+});
+
+toBranchSelect.addEventListener("change", updateConversion);
+
+swapBtn.addEventListener("click", swapAgencies);
+
+// =============================================================================
+// BOOT — load all JSON files then init UI
+// =============================================================================
+
+async function loadAgencies() {
+    const results = await Promise.all(
+        AGENCY_KEYS.map(key =>
+            fetch(`agencies-data/${key}.json`)
+                .then(r => {
+                    if (!r.ok) throw new Error(`Failed to load ${key}.json (${r.status})`);
+                    return r.json();
+                })
+                .then(data => [key, data])
+                .catch(err => {
+                    console.warn(err.message);
+                    return null;
+                })
+        )
+    );
+
+    for (const entry of results) {
+        if (entry) {
+            const [key, data] = entry;
+            AGENCIES[key] = data;
+        }
+    }
+
+    populateAgencyDropdowns();
+    populateAgenciesGrid();
+}
+
+loadAgencies();
