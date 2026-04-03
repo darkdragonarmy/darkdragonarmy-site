@@ -275,27 +275,32 @@ nav a.active {
 }
 
 .hero-avatars {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
     margin: 3rem 0;
-    flex-wrap: nowrap;
+    width: 100%;
 }
 
-@media (max-width: 500px) {
-    .hero-avatars {
-        gap: 1rem;
-        transform: scale(0.8);
-        transform-origin: center;
-    }
-}
-
-@media (max-width: 380px) {
+@media (max-width: 600px) {
     .hero-avatars {
         gap: 0.5rem;
-        transform: scale(0.65);
+    }
+
+    .avatar-container {
+        padding: 0.5rem;
+    }
+
+    .avatar-name {
+        font-size: 0.7rem;
+    }
+
+    .avatar-title {
+        font-size: 0.65rem;
     }
 }
+
+
 
 .avatar-container {
     position: relative;
@@ -314,6 +319,8 @@ nav a.active {
 
 .avatar-container img {
     display: block;
+    width: 100%;
+    height: auto;
     image-rendering: pixelated;
 }
 
