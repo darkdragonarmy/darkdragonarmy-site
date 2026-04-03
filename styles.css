@@ -1222,3 +1222,15 @@ footer {
 .mb-4 { margin-bottom: 2rem; }
 .mt-2 { margin-top: 1rem; }
 .mt-4 { margin-top: 2rem; }
+
+/* === MOBILE FIX FOR HERO AVATARS === */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+}
+
+.hero-avatars {
+    max-width: 500px;
+    margin: 3rem auto;
+}
