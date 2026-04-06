@@ -1115,3 +1115,60 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* Sponsor Cards Upgrade */
+.sponsor-card {
+    position: relative;
+}
+
+/* Price styling */
+.tier-price {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* Perk List */
+.perk-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.perk-list li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding-left: 18px;
+    position: relative;
+}
+
+.perk-list li::before {
+    content: "•";
+    color: var(--color-gold);
+    position: absolute;
+    left: 0;
+}
+
+/* Sponsor Avatar Area */
+.sponsor-showcase {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+/* Smaller avatars for sponsors */
+.sponsor-showcase .avatar-container {
+    padding: 0.5rem;
+}
+
+.sponsor-showcase img {
+    width: 50px;
+}
+
+/* Legendary glow (🔥 money maker visual) */
+.sponsor-card.legendary {
+    border: 1px solid gold;
+    box-shadow: 0 0 20px rgba(212,175,55,0.4);
+}
