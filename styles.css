@@ -1299,41 +1299,40 @@ footer {
     z-index: -1;
     animation: rainbowFlame 4s linear infinite, flameFlicker 1.5s infinite;
 }
-/* EA DISCORD */
-.ea-discord {
-    margin: 2rem 0;
+/* HEADER GOLD LINE */
+.header-divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color-gold), transparent);
 }
 
-/* SECTION TITLES */
-.ea-section-title {
-    color: var(--color-gold);
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+/* BADGE */
+.ea-badge {
+    width: 180px;
+    margin-bottom: 1rem;
 }
 
-/* PLACEHOLDER STYLE */
-.placeholder img {
-    filter: grayscale(100%);
-    opacity: 0.6;
-}
-
-.placeholder-text {
-    display: block;
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-    color: var(--color-text-secondary);
-}
-
-/* REP GRID */
-.ea-rep-grid {
+/* LEADERSHIP */
+.ea-leadership {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 2rem;
 }
 
-/* REP CARD */
-.ea-rep-card {
+/* EMPTY GREY */
+.empty {
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+/* REPS GRID */
+.ea-reps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* REP BOX */
+.ea-rep-box {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: 10px;
@@ -1341,25 +1340,43 @@ footer {
     text-align: center;
 }
 
-.ea-rep-card h4 {
+.ea-rep-box h4 {
     color: var(--color-gold);
-    margin-bottom: 0.3rem;
 }
 
-.ea-rep-card.empty {
-    opacity: 0.6;
-}
-
-/* ALLIANCE */
-.alliance-card {
+/* ALLIANCES */
+.ea-alliances {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
     margin-top: 2rem;
-    padding: 2rem;
+}
+
+.alliance-box {
+    background: var(--color-bg-card);
     border: 1px solid var(--color-gold);
     border-radius: 12px;
-    background: var(--color-bg-card);
+    padding: 1.5rem;
+    text-align: center;
 }
 
+/* LOGO SIZE */
 .alliance-logo {
-    width: 120px;
+    width: 80px;
     margin-bottom: 1rem;
+}
+
+/* MOBILE FIX */
+@media (max-width: 900px) {
+    .ea-reps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ea-alliances {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ea-leadership {
+        grid-template-columns: 1fr;
+    }
 }
