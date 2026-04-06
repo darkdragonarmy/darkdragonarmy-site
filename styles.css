@@ -319,8 +319,9 @@ nav a.active {
 
 .avatar-container img {
     display: block;
-    width: 100%;
+    width: 70%; /* 👈 THIS controls size */
     height: auto;
+    margin: 0 auto; /* keeps it centered */
     image-rendering: pixelated;
 }
 
