@@ -1218,3 +1218,84 @@ footer {
     box-shadow: 0 0 20px rgba(212,175,55,0.3);
     transform: translateY(-3px);
 }
+/* 🔥 FLAME EFFECT BASE */
+@keyframes flameFlicker {
+    0% { transform: translateY(0) scale(1); opacity: 0.9; }
+    50% { transform: translateY(-3px) scale(1.02); opacity: 1; }
+    100% { transform: translateY(0) scale(1); opacity: 0.9; }
+}
+
+/* 🔥 SILVER FLAME */
+.silver-tier {
+    position: relative;
+}
+
+.silver-tier::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #c0c0c0, #e5e5e5, #a8a8a8);
+    filter: blur(12px);
+    opacity: 0.6;
+    z-index: -1;
+    animation: flameFlicker 2s infinite;
+}
+
+/* 🔥 GOLD FLAME */
+.gold-tier {
+    position: relative;
+}
+
+.gold-tier::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #d4af37, #ffd700, #ffae00);
+    filter: blur(14px);
+    opacity: 0.7;
+    z-index: -1;
+    animation: flameFlicker 1.8s infinite;
+}
+
+/* 💎 DIAMOND FLAME (sparkly icy glow) */
+.diamond-tier {
+    position: relative;
+}
+
+.diamond-tier::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #9befff, #e0ffff, #b8f5ff);
+    filter: blur(14px);
+    opacity: 0.75;
+    z-index: -1;
+    animation: flameFlicker 1.6s infinite;
+}
+
+/* 🌈 LEGENDARY RAINBOW FLAME */
+@keyframes rainbowFlame {
+    0% { filter: hue-rotate(0deg) blur(16px); }
+    100% { filter: hue-rotate(360deg) blur(16px); }
+}
+
+.legendary-tier {
+    position: relative;
+}
+
+.legendary-tier::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 14px;
+    background: linear-gradient(
+        45deg,
+        red, orange, yellow, lime, cyan, blue, violet
+    );
+    opacity: 0.85;
+    z-index: -1;
+    animation: rainbowFlame 4s linear infinite, flameFlicker 1.5s infinite;
+}
