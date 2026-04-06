@@ -661,6 +661,8 @@ nav a.active {
 
 .unit-director {
     display: inline-block;
+    margin: 0 auto; /* 👈 ADD THIS */
+
     background: rgba(255, 69, 0, 0.1);
     border: 1px solid var(--color-fire-dark);
     border-radius: 20px;
