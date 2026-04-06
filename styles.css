@@ -606,6 +606,8 @@ nav a.active {
     transition: var(--transition-smooth);
     width: 380px;
     flex-shrink: 0;
+
+    text-align: center; /* 👈 ADD THIS */
 }
 
 @media (max-width: 850px) {
@@ -642,6 +644,13 @@ nav a.active {
     margin-bottom: 1rem;
     color: var(--color-gold);
     position: relative;
+}
+
+.unit-icon {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem auto;
 }
 
 .unit-card p {
