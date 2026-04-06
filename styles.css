@@ -1267,12 +1267,6 @@ footer {
 }
 /* === NEW ADDITIONS (NON-DESTRUCTIVE) === */
 
-.unit-icon {
-  width: 28px;
-  height: 28px;
-  margin-right: 8px;
-  vertical-align: middle;
-}
 
 .rank-badge {
   width: 40px;
