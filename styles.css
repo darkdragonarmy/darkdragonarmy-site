@@ -1246,3 +1246,38 @@ footer {
         font-size: 0.6rem;
     }
 }
+/* === NEW ADDITIONS (NON-DESTRUCTIVE) === */
+
+.unit-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.rank-badge {
+  width: 40px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.unit-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.unit-card:hover {
+  box-shadow: 0 0 25px rgba(212,175,55,0.35);
+}
+
+/* subtle flicker glow */
+@keyframes cardGlow {
+  0% { box-shadow: 0 0 10px rgba(212,175,55,0.15); }
+  50% { box-shadow: 0 0 20px rgba(212,175,55,0.35); }
+  100% { box-shadow: 0 0 10px rgba(212,175,55,0.15); }
+}
+
+.unit-card:hover {
+  animation: cardGlow 2s infinite;
+}
