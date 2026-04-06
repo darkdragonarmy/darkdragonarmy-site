@@ -574,6 +574,13 @@ nav a.active {
     text-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
 }
 
+.tier-badge {
+    width: 50px;        /* 👈 controls size */
+    height: auto;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
 /* Units Page */
 .units-grid {
     display: flex;
