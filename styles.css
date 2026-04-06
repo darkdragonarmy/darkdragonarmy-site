@@ -1299,3 +1299,67 @@ footer {
     z-index: -1;
     animation: rainbowFlame 4s linear infinite, flameFlicker 1.5s infinite;
 }
+/* EA DISCORD */
+.ea-discord {
+    margin: 2rem 0;
+}
+
+/* SECTION TITLES */
+.ea-section-title {
+    color: var(--color-gold);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* PLACEHOLDER STYLE */
+.placeholder img {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.placeholder-text {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: var(--color-text-secondary);
+}
+
+/* REP GRID */
+.ea-rep-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+/* REP CARD */
+.ea-rep-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.ea-rep-card h4 {
+    color: var(--color-gold);
+    margin-bottom: 0.3rem;
+}
+
+.ea-rep-card.empty {
+    opacity: 0.6;
+}
+
+/* ALLIANCE */
+.alliance-card {
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--color-gold);
+    border-radius: 12px;
+    background: var(--color-bg-card);
+}
+
+.alliance-logo {
+    width: 120px;
+    margin-bottom: 1rem;
+}
