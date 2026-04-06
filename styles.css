@@ -1295,23 +1295,53 @@ footer {
   animation: cardGlow 2s infinite;
 }
 
-.game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+.games-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
     margin-top: 2rem;
 }
 
 .game-card {
-    padding: 1.5rem;
-    border: 2px solid var(--color-border-gold);
+    background: linear-gradient(145deg, var(--color-bg-card), var(--color-bg-secondary));
+    border: 1px solid var(--color-border);
     border-radius: 10px;
-    background: var(--color-bg-card);
+    padding: 2rem;
+    width: 260px;
     text-align: center;
     transition: 0.3s;
+    position: relative;
 }
 
+.game-card h3 {
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+}
+
+.game-card p {
+    color: var(--color-text-secondary);
+}
+
+/* 🔥 GLOW EFFECT */
 .game-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 25px rgba(212,175,55,0.4);
+}
+
+.host-access {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--color-gold);
+    color: black;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
 }
