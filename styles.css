@@ -319,7 +319,7 @@ nav a.active {
 
 .avatar-container img {
     display: block;
-    width: 100%;
+    width: 50%;
     height: auto;
     image-rendering: pixelated;
 }
