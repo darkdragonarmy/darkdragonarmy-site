@@ -1294,3 +1294,24 @@ footer {
 .unit-card:hover {
   animation: cardGlow 2s infinite;
 }
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.game-card {
+    padding: 1.5rem;
+    border: 2px solid var(--color-border-gold);
+    border-radius: 10px;
+    background: var(--color-bg-card);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
