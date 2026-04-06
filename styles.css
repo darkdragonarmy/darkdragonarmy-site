@@ -1131,7 +1131,8 @@ footer {
 
 /* Icon */
 .tier-icon {
-    width: 45px;
+    width: 90px;
+    filter: drop-shadow(0 0 8px rgba(212,175,55,0.4));
 }
 
 /* PRICE (🔥 this is your standout) */
