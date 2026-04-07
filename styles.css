@@ -1468,3 +1468,12 @@ footer {
 .alliance-box:hover {
     transform: translateY(-5px);
 }
+/* SECTION TITLE GOLD BAR (MATCH OTHER PAGES) */
+.section-title::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    margin: 0.8rem auto 0;
+    background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+}
