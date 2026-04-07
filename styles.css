@@ -794,12 +794,19 @@ footer {
     font-weight: 600;
 }
 
-/* Ranklist Navigation */
+/* =========================
+   FIX BUTTON ALIGNMENT
+   ========================= */
+
 .ranklist-nav {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
+    justify-content: center;   /* centers the group */
+    align-items: center;
+
+    gap: 2rem;                 /* space between buttons */
+    margin: 2rem 0;
+
+    flex-wrap: wrap;           /* prevents breaking on small screens */
 }
 
 /* Responsive Design */
