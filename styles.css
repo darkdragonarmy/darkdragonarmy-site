@@ -1440,34 +1440,16 @@ footer {
 .alliance-box:hover {
     transform: translateY(-5px);
 }
-/* ALLIANCE GLOW BASE */
+
 .alliance-box {
-    position: relative;
-    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
-/* GLOW LAYER */
-.alliance-box::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 12px;
-    background: linear-gradient(45deg, #d4af37, #ffcc00, #d4af37);
-    filter: blur(12px);
-    opacity: 0;
-    z-index: -1;
-    transition: 0.4s ease;
-}
-
-/* HOVER = ACTIVATE GLOW */
-.alliance-box:hover::before {
-    opacity: 0.8;
-}
-
-/* FLOAT EFFECT */
-.alliance-box:hover {
-    transform: translateY(-5px);
-}
 /* SECTION TITLE GOLD BAR (MATCH OTHER PAGES) */
 .section-title::after {
     content: "";
