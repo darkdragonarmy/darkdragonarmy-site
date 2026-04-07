@@ -1502,3 +1502,12 @@ footer {
     margin: 0.8rem auto 0;
     background: linear-gradient(to right, transparent, var(--color-gold), transparent);
 }
+/* FORCE BUTTON TEXT TO STAY READABLE (FINAL OVERRIDE) */
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn-primary:hover,
+.btn-secondary:hover {
+    color: #000 !important;
+    text-shadow: none !important;
+}
