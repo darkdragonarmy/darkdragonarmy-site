@@ -1503,3 +1503,72 @@ footer {
     background: linear-gradient(to right, transparent, var(--color-gold), transparent);
 }
 
+/* =========================
+   GLOBAL BUTTON STYLE (CLEAN + CONSISTENT)
+   ========================= */
+
+/* Base button (default state = Image 1) */
+.btn,
+button,
+a.btn {
+    display: inline-block;
+    padding: 0.9rem 1.6rem;
+
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+
+    color: var(--color-gold);
+    background: transparent;
+
+    border: 2px solid var(--color-gold);
+    border-radius: 6px;
+
+    text-decoration: none;
+    text-align: center;
+
+    transition: 
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.15s ease;
+
+    /* prevent flicker */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Hover state (Image 2) */
+.btn:hover,
+button:hover,
+a.btn:hover {
+    background-color: var(--color-gold);
+    color: #1a1a28; /* your dark theme color */
+
+    border-color: var(--color-gold);
+
+    transform: translateY(-1px);
+}
+
+/* Click feel (subtle press) */
+.btn:active,
+button:active {
+    transform: translateY(0);
+}
+
+/* Remove ALL conflicting styles */
+.btn-primary,
+.btn-secondary,
+.btn-outline {
+    background: transparent !important;
+    color: var(--color-gold) !important;
+    border: 2px solid var(--color-gold) !important;
+}
+
+/* Ensure hover consistency across all variants */
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-outline:hover {
+    background-color: var(--color-gold) !important;
+    color: #1a1a28 !important;
+}
