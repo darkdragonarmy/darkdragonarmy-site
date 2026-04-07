@@ -692,7 +692,8 @@ nav a.active {
 
 .btn:hover {
     background: var(--color-gold);
-    color: var(--color-bg-dark);
+    color: #000000; /* force readable black */
+    text-shadow: none; /* remove glow blur */
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
 }
 
@@ -1058,6 +1059,10 @@ footer {
     text-decoration: none;
     font-weight: bold;
 }
+.btn-primary:hover {
+    color: #000000;
+    text-shadow: none;
+}
 /* === COF HEADER FIX === */
 
 .cof-title {
@@ -1338,6 +1343,44 @@ footer {
     border-radius: 10px;
     padding: 1rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+/* 🔥 Animated sweep line */
+.ea-rep-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-fire),
+        var(--color-gold),
+        transparent
+    );
+    opacity: 0;
+}
+
+/* activate animation */
+.ea-rep-box:hover::after {
+    opacity: 1;
+    animation: repSweep 1.5s linear infinite;
+}
+
+@keyframes repSweep {
+    0% { left: -120%; }
+    100% { left: 120%; }
+}
+
+/* glow + lift */
+.ea-rep-box:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-fire);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.35);
 }
 
 .ea-rep-box h4 {
