@@ -795,18 +795,20 @@ footer {
 }
 
 /* =========================
-   FIX BUTTON ALIGNMENT
+   PERFECT CENTER FIX (RANK PAGES)
    ========================= */
 
 .ranklist-nav {
     display: flex;
-    justify-content: center;   /* centers the group */
+    justify-content: center;
     align-items: center;
 
-    gap: 2rem;                 /* space between buttons */
-    margin: 2rem 0;
+    gap: 2rem;
 
-    flex-wrap: wrap;           /* prevents breaking on small screens */
+    width: fit-content;     /* 🔥 THIS is the key fix */
+    margin: 2rem auto;      /* centers the whole group */
+
+    flex-wrap: wrap;
 }
 
 /* Responsive Design */
