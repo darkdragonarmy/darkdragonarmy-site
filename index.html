@@ -1,188 +1,187 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Dragon Army | Medieval Habbo Agency</title>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 24 24&#39; fill=&#39;%23d4af37&#39;%3E%3Cpath d=&#39;M12 2C8 6 6 10 6 14c0 4 3 6 6 6s6-2 6-6c0-4-2-8-6-12z&#39;/%3E%3C/svg%3E">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Dragon Army</title>
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">
-                <div class="logo-icon"></div>
-                <h1><span class="logo-dragon">Dark Dragon</span> <span class="logo-army">Army</span></h1>
-            </a>
+
+<!-- HEADER -->
+<header>
+    <div class="container header-content">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"></div>
+            <h1><span class="logo-dragon">Dark Dragon</span> <span class="logo-army">Army</span></h1>
+        </a>
+
+        <button class="nav-toggle" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ranklist.html">Ranklist</a></li>
+                <li><a href="units.html">Units</a></li>
+                <li><a href="sponsorship.html">Sponsorship</a></li>
+                <li><a href="external-affairs.html">External Affairs</a></li>
+                <li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
+                <li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+
+        <h1>Welcome to the Realm</h1>
+        <p class="hero-subtitle">Forged in Fire. Ruled by Dragons.</p>
+
+        <div class="hero-avatars">
+
+            <div class="avatar-container">
+                <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=Mrs.Mayhem.&size=xl">
+                <p class="avatar-name">Mrs.Mayhem.</p>
+                <p class="avatar-title">Founder</p>
+            </div>
+
+            <div class="avatar-container">
+                <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=.Mayhem.&size=xl">
+                <p class="avatar-name">.Mayhem.</p>
+                <p class="avatar-title">Founder</p>
+            </div>
+
+            <div class="avatar-container">
+                <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=Kallista&size=xl">
+                <p class="avatar-name">Kallista</p>
+                <p class="avatar-title">Founder</p>
+            </div>
+
+            <div class="avatar-container">
+                <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=Lord-Fallen-One&size=xl">
+                <p class="avatar-name">Lord-Fallen-One</p>
+                <p class="avatar-title">Founder</p>
+            </div>
+
+        </div>
+
+        <div class="hero-buttons">
+            <a href="ranklist.html" class="btn">View Ranks</a>
+            <a href="units.html" class="btn">Explore Units</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+    <div class="container">
+
+        <h2 class="section-title">About Dark Dragon Army</h2>
+
+        <div class="dragon-grid">
+
+            <div class="dragon-card">
+                <h3>🔥 Power</h3>
+                <p>We rise through strength, discipline, and unity.</p>
+            </div>
+
+            <div class="dragon-card">
+                <h3>🐉 Legacy</h3>
+                <p>Every member contributes to a lasting empire.</p>
+            </div>
+
+            <div class="dragon-card">
+                <h3>⚔️ Honor</h3>
+                <p>Respect and loyalty define our ranks.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="section">
+    <div class="container">
+
+        <h2 class="section-title">Explore the Realm</h2>
+
+        <div class="explore-grid">
+
+            <div class="explore-card">
+                <h3>Ranks</h3>
+                <p>Progress through the hierarchy of power.</p>
+                <a href="ranklist.html" class="btn">View Ranks</a>
+            </div>
+
+            <div class="explore-card">
+                <h3>High Ranks</h3>
+                <p>Discover leadership and elite positions.</p>
+                <a href="hr-ranklist.html" class="btn">View High Ranks</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                <h4>Dark Dragon Army</h4>
+                <p>Medieval Habbo Agency</p>
+            </div>
             
-            <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <nav id="main-nav">
+            <div class="footer-links">
+                <h5>Navigation</h5>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-<li><a href="ranklist.html">Ranklist</a></li>
-<li><a href="units.html">Units</a></li>
-<li><a href="sponsorship.html">Sponsorship</a></li>
-<li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
-<li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/ranklist.html">Ranklist</a></li>
+                    <li><a href="/units.html">Units</a></li>
+                    <li><a href="sponsorship.html">Sponsorship</a></li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome to the Realm</h1>
-            <p class="hero-subtitle">Where Dragons Reign Supreme</p>
-            
-            <div class="hero-avatars">
-
-    <div class="avatar-container">
-        <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=Mrs.Mayhem.&size=xl" alt="Mrs.Mayhem.">
-        <p class="avatar-name">Mrs.Mayhem.</p>
-        <p class="avatar-title">Founder</p>
-    </div>
-
-    <div class="avatar-container">
-        <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=.Mayhem.&size=xl" alt=".Mayhem.">
-        <p class="avatar-name">.Mayhem.</p>
-        <p class="avatar-title">Founder</p>
-    </div>
-
-    <div class="avatar-container">
-        <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=Kallista&size=xl" alt="Kallista">
-        <p class="avatar-name">Kallista</p>
-        <p class="avatar-title">Founder</p>
-    </div>
-
-    <div class="avatar-container">
-        <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=Lord-Fallen-One&size=xl" alt="Lord-Fallen-One">
-        <p class="avatar-name">Lord-Fallen-One</p>
-        <p class="avatar-title">Founder</p>
-    </div>
-
-</div>
-            
-            <div class="mt-4">
-                <a href="/ranklist.html" class="btn btn-primary">View Ranks</a>
-                <a href="/units.html" class="btn" style="margin-left: 1rem;">Explore Units</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main>
-        <!-- About Section -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>About Dark Dragon Army</h2>
-                </div>
-                
-                <div class="cards-grid">
-                    <div class="card">
-                        <h3>⚔️ Join Our Ranks</h3>
-                        <p>Rise through the hierarchy from humble Castle Dweller to legendary Knight. Prove your worth and earn your place among the elite.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>🏰 Castle Dwellers</h3>
-                        <p>Begin your journey as a Commoner of the Keep. Work your way up through 9 tiers of service and dedication to the realm.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>🐉 Knights Path</h3>
-                        <p>Walk the path of the dragon. From Hatchling to Eternal Flame, prove your valor and become a legendary warrior.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>🎉 Special Units</h3>
-                        <p>Join specialized divisions: Event hosting, Royal Guards, Builders Guild, and more. Find your calling within our realm.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>👑 High Command</h3>
-                        <p>The most dedicated rise to High Rank positions. Lead armies, shape the realm's future, and stand beside the Founders.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>🔥 Eternal Glory</h3>
-                        <p>Those who reach the highest tiers achieve eternal recognition. Your name will be remembered throughout the ages.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quick Links Section -->
-        <section class="section" style="background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Explore the Realm</h2>
-                </div>
-                
-                <div class="cards-grid" style="max-width: 800px; margin: 0 auto;">
-                    <div class="card text-center">
-                        <h3>📜 LR Ranklist</h3>
-                        <p>View all Castle Dweller and Knight ranks from Tier 1 through Tier 9.</p>
-                        <a href="/ranklist.html" class="btn btn-fire mt-2">View Ranks</a>
-                    </div>
-                    
-                    <div class="card text-center">
-                        <h3>👑 HR Ranklist</h3>
-                        <p>Discover the High Ranks: Dragon Ascendancy, Dreadflame Dominion, and more.</p>
-                        <a href="/hr-ranklist.html" class="btn btn-fire mt-2">View HR Ranks</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h4>Dark Dragon Army</h4>
-                    <p>Medieval Habbo Agency</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h5>Navigation</h5>
-                    <ul>
-                        <li><a href="/index.html">Home</a></li>
-                        <li><a href="/ranklist.html">Ranklist</a></li>
-                        <li><a href="/units.html">Units</a></li>
-                        <li><a href="sponsorship.html">Sponsorship</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h5>External</h5>
-                    <ul>
-                        <li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
-                        <li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
-                    </ul>
-                </div>
             </div>
             
-            <div class="footer-disclaimer">
-                <p>This website is not affiliated with, endorsed, sponsored, or specifically approved by the Sulake Corporation Oy or its affiliates.</p>
-                <p>darkdragonarmy.ca may use the trademarks and other intellectual property of Sulake Corporation Oy or its affiliates, which is permitted under the Fan Site Policy.</p>
-                <p class="mt-2"><strong>Copyright © Dark Dragon Army 2026 - All Rights Reserved</strong></p>
+            <div class="footer-links">
+                <h5>External</h5>
+                <ul>
+                    <li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
+                    <li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
+                </ul>
             </div>
+
+            <!-- CONTACT -->
+            <div class="footer-links">
+                <h5>Contact</h5>
+                <ul>
+                    <li>
+                        <a href="mailto:darkdragonarmy782@gmail.com">
+                            📧 darkdragonarmy782@gmail.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
-    </footer>
+        
+        <div class="footer-disclaimer">
+            <p>This website is not affiliated with, endorsed, sponsored, or specifically approved by the Sulake Corporation Oy or its affiliates.</p>
+            <p>darkdragonarmy.ca may use the trademarks and other intellectual property of Sulake Corporation Oy or its affiliates, which is permitted under the Fan Site Policy.</p>
+            <p class="mt-2"><strong>Copyright © Dark Dragon Army 2026 - All Rights Reserved</strong></p>
+        </div>
+    </div>
+</footer>
 
-    <script>
-        function toggleNav() {
-            document.getElementById('main-nav').classList.toggle('active');
-        }
-    </script>
-
-
-</body></html>
+</body>
+</html>
