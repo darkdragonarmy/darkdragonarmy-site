@@ -1572,3 +1572,38 @@ button:active {
     background-color: var(--color-gold) !important;
     color: #1a1a28 !important;
 }
+/* =========================
+   BUTTON SIZE + TYPOGRAPHY UNIFICATION
+   ========================= */
+
+/* Force consistent button sizing */
+.btn,
+button,
+a.btn {
+    min-width: 220px;          /* makes them equal width */
+    height: 60px;              /* consistent height */
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 1.5rem;         /* horizontal padding only */
+}
+
+/* Typography consistency */
+.btn,
+button,
+a.btn {
+    font-size: 0.95rem;        /* adjust if you want slightly bigger */
+    font-weight: 600;          /* THIS fixes bold inconsistency */
+    letter-spacing: 0.18em;    /* matches your screenshot spacing */
+}
+
+/* Optional: perfectly align button groups */
+.btn-group,
+.ranklist-nav {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
