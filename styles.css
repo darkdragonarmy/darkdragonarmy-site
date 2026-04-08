@@ -306,12 +306,22 @@ nav a.active {
     position: relative;
     padding: 1rem;
     background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-card) 100%);
-    border: 2px solid var(--color-border-gold);
+    border: 2px solid var(--color-border);
     border-radius: 10px;
     box-shadow: var(--shadow-glow);
     transition: var(--transition-smooth);
 }
+/* ACTIVE AVATAR (HAS IMAGE) */
+.avatar-container:not(.placeholder):hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 18px rgba(212,175,55,0.4);
+}
 
+/* EMPTY AVATAR */
+.avatar-container.placeholder {
+    border-color: var(--color-border);
+    box-shadow: none;
+}
 .avatar-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
@@ -1277,7 +1287,6 @@ footer {
 .diamond-tier,
 .legendary-tier {
     position: relative;
-    overflow: hidden;
 }
 
 /* FULL BORDER LINE */
@@ -1290,7 +1299,7 @@ footer {
     inset: 0;
     border-radius: 10px;
 
-    padding: 2px;
+    padding: 3px; /*sizing*/
 
     background-size: 300% 300%;
 
@@ -1359,43 +1368,77 @@ footer {
     0% { background-position: 0% 0%; }
     100% { background-position: 300% 0%; }
 }
-
 /* =========================
-   PERK BOX FINAL
+   PERK BOX (FINAL CLEAN SYSTEM)
    ========================= */
 
 .perk-box {
     margin: 1rem auto;
-    padding: 1.2rem;
-    max-width: 750px; /* 🔥 longer width */
+    padding: 1rem 1.5rem;
+
+    max-width: 800px; /* 🔥 wider + flatter */
+
     background: rgba(0,0,0,0.25);
-    border: 1px solid var(--color-border);
+
+    border: 2px solid var(--color-border);
     border-radius: 10px;
+
     transition: var(--transition-smooth);
 }
+
+/* GRID (2x2 layout) */
+.perk-list {
+    list-style: none;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 0.5rem 1.5rem;
+
+    margin: 0 auto;
+}
+
+/* bullet styling */
+.perk-list li {
+    padding-left: 18px;
+    position: relative;
+}
+
+.perk-list li::before {
+    content: "•";
+    color: var(--color-gold);
+    position: absolute;
+    left: 0;
+}
+
+/* COLORS PER TIER */
 
 /* SILVER */
 .silver-tier .perk-box:hover {
     border-color: #c0c0c0;
-    box-shadow: 0 0 15px rgba(192,192,192,0.3);
+    box-shadow: 0 0 18px rgba(192,192,192,0.4);
 }
 
 /* GOLD */
 .gold-tier .perk-box:hover {
     border-color: var(--color-gold);
-    box-shadow: 0 0 18px rgba(212,175,55,0.35);
+    box-shadow: 0 0 20px rgba(212,175,55,0.4);
 }
 
 /* DIAMOND */
 .diamond-tier .perk-box:hover {
     border-color: #9befff;
-    box-shadow: 0 0 18px rgba(155,239,255,0.35);
+    box-shadow: 0 0 20px rgba(155,239,255,0.4);
 }
 
-/* LEGENDARY */
+/* LEGENDARY (RAINBOW FEEL — NOT STACKED) */
 .legendary-tier .perk-box:hover {
     border-color: var(--color-fire);
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
+    box-shadow: 
+        0 0 10px rgba(255,0,0,0.4),
+        0 0 15px rgba(255,165,0,0.35),
+        0 0 20px rgba(0,255,255,0.3);
 }
 
 /* =========================
@@ -1497,7 +1540,6 @@ footer {
     }
 }
 
-
 /* Sponsor placeholder styling */
 .avatar-container.placeholder img {
     filter: grayscale(100%) brightness(0.7);
@@ -1508,47 +1550,6 @@ footer {
     color: var(--color-text-secondary);
     font-style: italic;
 }
-
-
-/* =========================
-   PERK BOX - CLEAN HOVER (WORKING)
-   ========================= */
-
-.perk-box {
-    margin: 1.5rem auto;
-    padding: 1.5rem;
-    max-width: 600px;
-    background: rgba(0,0,0,0.25);
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    transition: var(--transition-smooth);
-}
-
-/* SILVER */
-.silver-tier .perk-box:hover {
-    border-color: #c0c0c0;
-    box-shadow: 0 0 16px rgba(192,192,192,0.35);
-}
-
-/* GOLD */
-.gold-tier .perk-box:hover {
-    border-color: var(--color-gold);
-    box-shadow: 0 0 18px rgba(212,175,55,0.35);
-}
-
-/* DIAMOND */
-.diamond-tier .perk-box:hover {
-    border-color: #9befff;
-    box-shadow: 0 0 18px rgba(155,239,255,0.35);
-}
-
-/* LEGENDARY 🌈 (simple but correct) */
-.legendary-tier .perk-box:hover {
-    border-color: var(--color-fire);
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
-}
-
-
 
 /* HEADER GOLD LINE */
 .header-divider {
