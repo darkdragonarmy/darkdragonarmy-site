@@ -1358,10 +1358,34 @@ footer {
     transition: var(--transition-smooth);
 }
 
-/* Glow on hover */
-.perk-box:hover {
+/* =========================
+   PERK BOX - MATCH TIER GLOW
+   ========================= */
+
+/* SILVER */
+.silver-tier .perk-box:hover {
+    border-color: #c0c0c0;
+    box-shadow: 0 0 10px rgba(192,192,192,0.4);
+    transform: translateY(-3px);
+}
+
+/* GOLD */
+.gold-tier .perk-box:hover {
     border-color: var(--color-gold);
-    box-shadow: 0 0 20px rgba(212,175,55,0.3);
+    box-shadow: 0 0 10px rgba(212,175,55,0.4);
+    transform: translateY(-3px);
+}
+
+/* DIAMOND */
+.diamond-tier .perk-box:hover {
+    border-color: #9befff;
+    box-shadow: 0 0 10px rgba(155,239,255,0.5);
+    transform: translateY(-3px);
+}
+
+/* 🌈 LEGENDARY */
+.legendary-tier .perk-box:hover {
+    box-shadow: 0 0 12px rgba(255,255,255,0.6);
     transform: translateY(-3px);
 }
 /* 🔥 FLAME EFFECT BASE */
@@ -1371,80 +1395,66 @@ footer {
     100% { transform: translateY(0) scale(1); opacity: 0.9; }
 }
 
-/* 🔥 SILVER FLAME */
-.silver-tier {
-    position: relative;
-}
-
+/* 🔥 SILVER FLAME (tighter) */
 .silver-tier::before {
     content: "";
     position: absolute;
     inset: -2px;
     border-radius: 12px;
     background: linear-gradient(45deg, #c0c0c0, #e5e5e5, #a8a8a8);
-    filter: blur(12px);
-    opacity: 0.6;
+    filter: blur(6px);
+    opacity: 0.5;
     z-index: -1;
     animation: flameFlicker 2s infinite;
 }
 
-/* 🔥 GOLD FLAME */
-.gold-tier {
-    position: relative;
-}
-
+/* 🔥 GOLD FLAME (tighter) */
 .gold-tier::before {
     content: "";
     position: absolute;
     inset: -2px;
     border-radius: 12px;
     background: linear-gradient(45deg, #d4af37, #ffd700, #ffae00);
-    filter: blur(14px);
-    opacity: 0.7;
+    filter: blur(7px);
+    opacity: 0.55;
     z-index: -1;
     animation: flameFlicker 1.8s infinite;
 }
 
-/* 💎 DIAMOND FLAME (sparkly icy glow) */
-.diamond-tier {
-    position: relative;
-}
-
+/* 💎 DIAMOND FLAME (tighter) */
 .diamond-tier::before {
     content: "";
     position: absolute;
     inset: -2px;
     border-radius: 12px;
     background: linear-gradient(45deg, #9befff, #e0ffff, #b8f5ff);
-    filter: blur(14px);
-    opacity: 0.75;
+    filter: blur(7px);
+    opacity: 0.6;
     z-index: -1;
     animation: flameFlicker 1.6s infinite;
 }
 
-/* 🌈 LEGENDARY RAINBOW FLAME */
-@keyframes rainbowFlame {
-    0% { filter: hue-rotate(0deg) blur(16px); }
-    100% { filter: hue-rotate(360deg) blur(16px); }
-}
-
-.legendary-tier {
-    position: relative;
-}
-
+/* 🌈 LEGENDARY RAINBOW (tighter but still special) */
 .legendary-tier::before {
     content: "";
     position: absolute;
-    inset: -3px;
+    inset: -2px;
     border-radius: 14px;
     background: linear-gradient(
         45deg,
         red, orange, yellow, lime, cyan, blue, violet
     );
-    opacity: 0.85;
+    opacity: 0.75;
     z-index: -1;
-    animation: rainbowFlame 4s linear infinite, flameFlicker 1.5s infinite;
+
+    /* 🔥 tighter glow */
+    filter: blur(10px);
+
+    animation:
+        rainbowFlame 4s linear infinite,
+        flameFlicker 1.5s infinite;
 }
+
 /* HEADER GOLD LINE */
 .header-divider {
     height: 2px;
