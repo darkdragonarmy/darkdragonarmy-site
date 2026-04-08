@@ -1629,3 +1629,11 @@ a.btn {
     0% { left: -120%; }
     100% { left: 120%; }
 }
+/* =========================
+   MATCH EA HOVER (INDEX CARDS)
+   ========================= */
+
+.cards-grid .card:hover {
+    border-color: var(--color-fire); /* 🔥 turns border red */
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.35); /* 🔥 glow */
+}
