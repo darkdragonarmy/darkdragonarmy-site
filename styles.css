@@ -1268,6 +1268,152 @@ footer {
     z-index: 0;           /* 🔥 keeps glow contained */
 }
 
+/* =========================
+   SPONSOR BORDER (FINAL WORKING)
+   ========================= */
+
+.silver-tier,
+.gold-tier,
+.diamond-tier,
+.legendary-tier {
+    position: relative;
+    overflow: hidden;
+}
+
+/* FULL BORDER LINE */
+.silver-tier::before,
+.gold-tier::before,
+.diamond-tier::before,
+.legendary-tier::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+
+    padding: 2px;
+
+    background-size: 300% 300%;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+    animation: borderMove 4s linear infinite;
+}
+
+/* COLORS */
+
+/* SILVER */
+.silver-tier::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #c0c0c0,
+        #e5e5e5,
+        transparent
+    );
+}
+
+/* GOLD */
+.gold-tier::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d4af37,
+        #ffd700,
+        transparent
+    );
+}
+
+/* DIAMOND */
+.diamond-tier::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #9befff,
+        #e0ffff,
+        transparent
+    );
+}
+
+/* LEGENDARY 🌈 */
+.legendary-tier::before {
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+}
+
+/* movement */
+@keyframes borderMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 300% 0%; }
+}
+
+/* =========================
+   PERK BOX FINAL
+   ========================= */
+
+.perk-box {
+    margin: 1rem auto;
+    padding: 1.2rem;
+    max-width: 750px; /* 🔥 longer width */
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    transition: var(--transition-smooth);
+}
+
+/* SILVER */
+.silver-tier .perk-box:hover {
+    border-color: #c0c0c0;
+    box-shadow: 0 0 15px rgba(192,192,192,0.3);
+}
+
+/* GOLD */
+.gold-tier .perk-box:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 18px rgba(212,175,55,0.35);
+}
+
+/* DIAMOND */
+.diamond-tier .perk-box:hover {
+    border-color: #9befff;
+    box-shadow: 0 0 18px rgba(155,239,255,0.35);
+}
+
+/* LEGENDARY */
+.legendary-tier .perk-box:hover {
+    border-color: var(--color-fire);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
+}
+
+/* =========================
+   PLACEHOLDER FIX
+   ========================= */
+
+.avatar-container.placeholder {
+    border-color: var(--color-border);
+    box-shadow: none;
+}
+
+.avatar-container.placeholder:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 15px rgba(212,175,55,0.35);
+}
+
+
+
 /* Title */
 .tier-title {
     display: flex;
@@ -1323,18 +1469,7 @@ footer {
     position: absolute;
     left: 0;
 }
-.perk-list li {
-    margin-bottom: 0.5rem;
-    padding-left: 18px;
-    position: relative;
-}
 
-.perk-list li::before {
-    content: "•";
-    color: var(--color-gold);
-    position: absolute;
-    left: 0;
-}
 
 @media (max-width: 600px) {
     .perk-list {
@@ -1374,25 +1509,6 @@ footer {
     font-style: italic;
 }
 
-/* =========================
-   SPONSOR PLACEHOLDER FIX
-   ========================= */
-
-.sponsor-tier:hover .avatar-container.placeholder {
-    border-color: var(--color-fire);
-    box-shadow: 0 0 15px rgba(255, 69, 0, 0.35);
-}
-
-/* Perk Box */
-.perk-box {
-    margin: 1.5rem auto;
-    padding: 1.5rem;
-    max-width: 600px;
-    background: rgba(0,0,0,0.25);
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    transition: var(--transition-smooth);
-}
 
 /* =========================
    PERK BOX - CLEAN HOVER (WORKING)
@@ -1432,123 +1548,7 @@ footer {
     box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
 }
 
-/* =========================
-   FULL BORDER ANIMATION (FINAL)
-   ========================= */
 
-.silver-tier,
-.gold-tier,
-.diamond-tier,
-.legendary-tier {
-    position: relative;
-}
-
-/* animated border wrapper */
-.silver-tier::after,
-.gold-tier::after,
-.diamond-tier::after,
-.legendary-tier::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 10px;
-
-    padding: 2px; /* 🔥 thickness */
-
-    background-size: 300% 100%;
-
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-
-    opacity: 0;
-}
-
-/* activate */
-.silver-tier:hover::after,
-.gold-tier:hover::after,
-.diamond-tier:hover::after,
-.legendary-tier:hover::after {
-    opacity: 1;
-    animation: borderFlow 2.5s linear infinite;
-}
-
-/* COLORS */
-
-/* SILVER */
-.silver-tier::after {
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #c0c0c0,
-        #e5e5e5,
-        transparent
-    );
-}
-
-/* GOLD */
-.gold-tier::after {
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #d4af37,
-        #ffd700,
-        transparent
-    );
-}
-
-/* DIAMOND */
-.diamond-tier::after {
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #9befff,
-        #e0ffff,
-        transparent
-    );
-}
-
-/* 🌈 LEGENDARY */
-.legendary-tier::after {
-    background: linear-gradient(
-        90deg,
-        red,
-        orange,
-        yellow,
-        lime,
-        cyan,
-        blue,
-        violet,
-        red
-    );
-
-    animation: borderFlow 2.5s linear infinite;
-}
-
-/* movement */
-@keyframes borderFlow {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 300% 0%; }
-}
-
-/* subtle outer glow (not thick) */
-.silver-tier:hover {
-    box-shadow: 0 0 12px rgba(192,192,192,0.3);
-}
-
-.gold-tier:hover {
-    box-shadow: 0 0 14px rgba(212,175,55,0.35);
-}
-
-.diamond-tier:hover {
-    box-shadow: 0 0 14px rgba(155,239,255,0.35);
-}
-
-.legendary-tier:hover {
-    box-shadow: 0 0 18px rgba(255,255,255,0.4);
-}
 
 /* HEADER GOLD LINE */
 .header-divider {
