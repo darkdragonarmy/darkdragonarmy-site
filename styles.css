@@ -1382,16 +1382,10 @@ footer {
     transform: translateY(-3px);
 }
 
-/* 🌈 LEGENDARY */
+/* 🌈 LEGENDARY (MATCH BORDER STYLE) */
 .legendary-tier .perk-box:hover {
     border-color: transparent;
-    box-shadow:
-        0 0 10px rgba(255, 0, 0, 0.4),
-        0 0 14px rgba(255, 165, 0, 0.35),
-        0 0 18px rgba(255, 255, 0, 0.3),
-        0 0 22px rgba(0, 255, 255, 0.3),
-        0 0 26px rgba(0, 0, 255, 0.25),
-        0 0 30px rgba(138, 43, 226, 0.25);
+    box-shadow: 0 0 14px rgba(255,255,255,0.4);
 }
 
 /* 🔥 FLAME EFFECT BASE */
@@ -1402,7 +1396,7 @@ footer {
 }
 
 /* =========================
-   SPONSOR ANIMATED EDGE (CONTROLLED)
+   FULL BORDER ANIMATION (FINAL)
    ========================= */
 
 .silver-tier,
@@ -1410,31 +1404,38 @@ footer {
 .diamond-tier,
 .legendary-tier {
     position: relative;
-    overflow: hidden;
 }
 
-/* EDGE LINE (shared base) */
+/* animated border wrapper */
 .silver-tier::after,
 .gold-tier::after,
 .diamond-tier::after,
 .legendary-tier::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: -120%;
-    width: 120%;
-    height: 3px; /* 🔥 thickness control */
+    inset: 0;
+    border-radius: 10px;
+
+    padding: 2px; /* 🔥 thickness */
+
+    background-size: 300% 100%;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
 
     opacity: 0;
 }
 
-/* ACTIVATE */
+/* activate */
 .silver-tier:hover::after,
 .gold-tier:hover::after,
 .diamond-tier:hover::after,
 .legendary-tier:hover::after {
     opacity: 1;
-    animation: sponsorSweep 1.5s linear infinite;
+    animation: borderFlow 2.5s linear infinite;
 }
 
 /* COLORS */
@@ -1472,7 +1473,7 @@ footer {
     );
 }
 
-/* 🌈 LEGENDARY (ANIMATED RAINBOW EDGE) */
+/* 🌈 LEGENDARY */
 .legendary-tier::after {
     background: linear-gradient(
         90deg,
@@ -1482,24 +1483,17 @@ footer {
         lime,
         cyan,
         blue,
-        violet
+        violet,
+        red
     );
 
-    animation:
-        sponsorSweep 1.5s linear infinite,
-        rainbowShift 4s linear infinite;
+    animation: borderFlow 2.5s linear infinite;
 }
 
-/* SWEEP MOTION */
-@keyframes sponsorSweep {
-    0% { left: -120%; }
-    100% { left: 120%; }
-}
-
-/* RAINBOW FLOW */
-@keyframes rainbowShift {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
+/* movement */
+@keyframes borderFlow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 300% 0%; }
 }
 
 /* subtle outer glow (not thick) */
