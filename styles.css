@@ -1670,3 +1670,14 @@ a.btn {
     border-color: var(--color-fire); /* 🔥 turns border red */
     box-shadow: 0 0 20px rgba(255, 69, 0, 0.35); /* 🔥 glow */
 }
+
+/* =========================
+   RANK POINTS PLACEHOLDER
+   ========================= */
+
+.rank-points {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
