@@ -731,7 +731,7 @@ nav a.active {
     border-radius: 20px;
     padding: 0.5rem 1.2rem;
     font-style: italic;
-    color: var(--color-ember);
+    color: #ffffff; /* 🔥 clean white */
     font-size: 0.95rem;
     position: relative;
 }
@@ -1085,8 +1085,37 @@ footer {
   100% { box-shadow: 0 0 10px rgba(212,175,55,0.15); }
 }
 
+/* =========================
+   GUILDS FIRE EFFECT
+   ========================= */
+
+.unit-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-fire),
+        var(--color-gold),
+        transparent
+    );
+
+    opacity: 0;
+}
+
+.unit-card:hover::after {
+    opacity: 1;
+    animation: cardSweep 1.5s linear infinite;
+}
+
 .unit-card:hover {
-  animation: cardGlow 2s infinite;
+    border-color: var(--color-fire);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.35);
 }
 
 .game-card {
