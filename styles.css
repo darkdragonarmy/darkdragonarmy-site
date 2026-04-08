@@ -1616,40 +1616,4 @@ a.btn {
     justify-content: center;
     flex-wrap: wrap;
 }
-/* =========================
-   RED FIRE BORDER ANIMATION
-   ========================= */
 
-@keyframes fireBorder {
-    0% {
-        box-shadow: 0 0 0 rgba(255, 69, 0, 0);
-    }
-    50% {
-        box-shadow: 0 0 15px rgba(255, 69, 0, 0.6),
-                    0 0 25px rgba(255, 69, 0, 0.4);
-    }
-    100% {
-        box-shadow: 0 0 0 rgba(255, 69, 0, 0);
-    }
-}
-/* =========================
-   APPLY FIRE EFFECT (EXCLUDE SPONSORS)
-   ========================= */
-
-/* Target all main cards EXCEPT sponsor tiers */
-.unit-card,
-.transfer-panel,
-.ranklist-container,
-.avatar-container {
-
-    position: relative;
-    overflow: hidden;
-}
-
-/* Animated glow on hover only (clean, not constant) */
-.unit-card:hover,
-.transfer-panel:hover,
-.ranklist-container:hover,
-.avatar-container:hover {
-    animation: fireBorder 1.5s ease-in-out infinite;
-}
