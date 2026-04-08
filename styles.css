@@ -610,20 +610,31 @@ nav a.active {
     margin-bottom: 2rem;
 }
 
+/* =========================
+   HR TIER HEADER (MATCH RANKLIST)
+   ========================= */
+
 .hr-tier-header {
-    background: linear-gradient(135deg, rgba(255, 69, 0, 0.2) 0%, rgba(212, 175, 55, 0.2) 100%);
-    border: 2px solid var(--color-fire);
+    background: linear-gradient(
+        90deg,
+        var(--color-bg-secondary),
+        var(--color-bg-card),
+        var(--color-bg-secondary)
+    );
+
+    border: 1px solid var(--color-border-gold);
     border-radius: 8px;
+
     padding: 1.5rem 2rem;
     margin-bottom: 1.5rem;
     text-align: center;
 }
 
 .hr-tier-header h3 {
-    color: var(--color-fire);
+    color: var(--color-gold);   /* 🔥 match ranklist */
     margin: 0;
     font-size: 1.5rem;
-    text-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+    text-shadow: none;          /* 🔥 remove red glow */
 }
 
 .tier-badge {
