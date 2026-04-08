@@ -1277,9 +1277,8 @@ footer {
     position: relative;   /* 🔥 THIS FIXES EVERYTHING */
     z-index: 0;           /* 🔥 keeps glow contained */
 }
-
 /* =========================
-   SPONSOR BORDER (FINAL WORKING)
+   SPONSOR BORDER (VISIBLE + WORKING)
    ========================= */
 
 .silver-tier,
@@ -1289,27 +1288,19 @@ footer {
     position: relative;
 }
 
-/* FULL BORDER LINE */
+/* OUTER BORDER */
 .silver-tier::before,
 .gold-tier::before,
 .diamond-tier::before,
 .legendary-tier::before {
     content: "";
     position: absolute;
-    inset: 0;
-    border-radius: 10px;
+    inset: -2px; /* 🔥 sits OUTSIDE the box */
 
-    padding: 3px; /*sizing*/
+    border-radius: 12px;
+    z-index: -1;
 
     background-size: 300% 300%;
-
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-
-    mask-composite: exclude;
-
     animation: borderMove 4s linear infinite;
 }
 
@@ -1321,7 +1312,8 @@ footer {
         90deg,
         transparent,
         #c0c0c0,
-        #e5e5e5,
+        #ffffff,
+        #c0c0c0,
         transparent
     );
 }
@@ -1333,6 +1325,7 @@ footer {
         transparent,
         #d4af37,
         #ffd700,
+        #d4af37,
         transparent
     );
 }
@@ -1344,11 +1337,12 @@ footer {
         transparent,
         #9befff,
         #e0ffff,
+        #9befff,
         transparent
     );
 }
 
-/* LEGENDARY 🌈 */
+/* LEGENDARY 🌈 TRUE MOVING */
 .legendary-tier::before {
     background: linear-gradient(
         90deg,
@@ -1363,11 +1357,12 @@ footer {
     );
 }
 
-/* movement */
+/* animation */
 @keyframes borderMove {
     0% { background-position: 0% 0%; }
     100% { background-position: 300% 0%; }
 }
+
 /* =========================
    PERK BOX (FINAL CLEAN SYSTEM)
    ========================= */
@@ -1434,11 +1429,13 @@ footer {
 
 /* LEGENDARY (RAINBOW FEEL — NOT STACKED) */
 .legendary-tier .perk-box:hover {
-    border-color: var(--color-fire);
+    border-color: transparent;
+
     box-shadow: 
         0 0 10px rgba(255,0,0,0.4),
         0 0 15px rgba(255,165,0,0.35),
-        0 0 20px rgba(0,255,255,0.3);
+        0 0 20px rgba(0,255,255,0.3),
+        0 0 25px rgba(138,43,226,0.3);
 }
 
 /* =========================
@@ -1483,42 +1480,7 @@ footer {
 }
 
 /* Perks */
-/* =========================
-   PERK GRID (2 PER ROW)
-   ========================= */
 
-.perk-list {
-    list-style: none;
-    padding: 0;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 0.5rem 1.5rem;
-
-    max-width: 600px;
-    margin: 0 auto 1.5rem;
-}
-
-.perk-list li {
-    margin: 0;
-    padding-left: 18px;
-    position: relative;
-}
-
-.perk-list li::before {
-    content: "•";
-    color: var(--color-gold);
-    position: absolute;
-    left: 0;
-}
-
-
-@media (max-width: 600px) {
-    .perk-list {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* Sponsor row (4 across) */
 .sponsor-row {
