@@ -1335,19 +1335,46 @@ footer {
         0 0 16px rgba(155,239,255,0.25);
     animation: flickerBorder 2.4s ease-in-out infinite;
 }
+/* =========================
+   LEGENDARY TIER - RAINBOW BORDER (MATCH PERKS)
+   ========================= */
 
-/* LEGENDARY 🌈 */
-.legendary-tier::before {
-    border-color: var(--color-fire);
-    box-shadow:
-        0 0 8px rgba(255,0,0,0.4),
-        0 0 12px rgba(255,165,0,0.35),
-        0 0 16px rgba(255,255,0,0.3),
-        0 0 20px rgba(0,255,255,0.3),
-        0 0 24px rgba(0,0,255,0.25),
-        0 0 28px rgba(138,43,226,0.25);
-    animation: flickerBorder 2s ease-in-out infinite;
+.legendary-tier {
+    position: relative;
 }
+
+/* hidden layer */
+.legendary-tier::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    padding: 2px;
+
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+
+    background-size: 300% 300%;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+    animation: legendaryBorderShift 4s linear infinite;
+}
+
 /* =========================
    PERK BOX (FINAL CLEAN SYSTEM)
    ========================= */
