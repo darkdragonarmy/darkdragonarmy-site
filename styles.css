@@ -393,15 +393,22 @@ nav a.active {
 }
 
 .card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-fire), var(--color-gold), var(--color-fire));
+    left: -120%;
+    width: 120%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-fire),
+        var(--color-gold),
+        transparent
+    );
+
     opacity: 0;
-    transition: var(--transition-smooth);
 }
 
 .card:hover {
@@ -412,6 +419,7 @@ nav a.active {
 
 .card:hover::before {
     opacity: 1;
+    animation: cardSweep 1.5s linear infinite;
 }
 
 .card h3 {
@@ -437,6 +445,7 @@ nav a.active {
     color: var(--color-gold-dark);
     font-size: 0.95rem;
 }
+
 
 /* Ranklist Styles */
 .ranklist-container {
@@ -1616,52 +1625,7 @@ a.btn {
     justify-content: center;
     flex-wrap: wrap;
 }
-
-/* =========================
-   FORCE FIRE EFFECT ON INDEX CARDS
-   ========================= */
-
-.cards-grid .card {
-    position: relative;
-    overflow: hidden;
-}
-
-/* visible animated edge */
-.cards-grid .card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-
-    box-shadow:
-        0 0 0 rgba(255, 69, 0, 0);
-
-    transition: opacity 0.3s ease;
-    opacity: 0;
-}
-
-/* hover trigger */
-.cards-grid .card:hover::after {
-    opacity: 1;
-    animation: firePulse 1.6s ease-in-out infinite;
-}
-
-/* animation */
-@keyframes firePulse {
-    0% {
-        box-shadow:
-            0 0 6px rgba(255, 69, 0, 0.2),
-            0 0 12px rgba(255, 69, 0, 0.15);
-    }
-    50% {
-        box-shadow:
-            0 0 16px rgba(255, 69, 0, 0.6),
-            0 0 28px rgba(255, 69, 0, 0.3);
-    }
-    100% {
-        box-shadow:
-            0 0 6px rgba(255, 69, 0, 0.2),
-            0 0 12px rgba(255, 69, 0, 0.15);
-    }
+@keyframes cardSweep {
+    0% { left: -120%; }
+    100% { left: 120%; }
 }
