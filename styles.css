@@ -1384,9 +1384,16 @@ footer {
 
 /* 🌈 LEGENDARY */
 .legendary-tier .perk-box:hover {
-    box-shadow: 0 0 12px rgba(255,255,255,0.6);
-    transform: translateY(-3px);
+    border-color: transparent;
+    box-shadow:
+        0 0 10px rgba(255, 0, 0, 0.4),
+        0 0 14px rgba(255, 165, 0, 0.35),
+        0 0 18px rgba(255, 255, 0, 0.3),
+        0 0 22px rgba(0, 255, 255, 0.3),
+        0 0 26px rgba(0, 0, 255, 0.25),
+        0 0 30px rgba(138, 43, 226, 0.25);
 }
+
 /* 🔥 FLAME EFFECT BASE */
 @keyframes flameFlicker {
     0% { transform: translateY(0) scale(1); opacity: 0.9; }
@@ -1395,42 +1402,121 @@ footer {
 }
 
 /* =========================
-   SPONSOR TIER EDGE GLOW (BALANCED)
+   SPONSOR ANIMATED EDGE (CONTROLLED)
    ========================= */
 
+.silver-tier,
+.gold-tier,
+.diamond-tier,
+.legendary-tier {
+    position: relative;
+    overflow: hidden;
+}
+
+/* EDGE LINE (shared base) */
+.silver-tier::after,
+.gold-tier::after,
+.diamond-tier::after,
+.legendary-tier::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 3px; /* 🔥 thickness control */
+
+    opacity: 0;
+}
+
+/* ACTIVATE */
+.silver-tier:hover::after,
+.gold-tier:hover::after,
+.diamond-tier:hover::after,
+.legendary-tier:hover::after {
+    opacity: 1;
+    animation: sponsorSweep 1.5s linear infinite;
+}
+
+/* COLORS */
+
 /* SILVER */
-.silver-tier {
-    box-shadow:
-        0 0 10px rgba(192,192,192,0.5),
-        0 0 20px rgba(192,192,192,0.3),
-        0 0 30px rgba(192,192,192,0.15);
+.silver-tier::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #c0c0c0,
+        #e5e5e5,
+        transparent
+    );
 }
 
 /* GOLD */
-.gold-tier {
-    box-shadow:
-        0 0 12px rgba(212,175,55,0.6),
-        0 0 22px rgba(212,175,55,0.35),
-        0 0 34px rgba(212,175,55,0.2);
+.gold-tier::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d4af37,
+        #ffd700,
+        transparent
+    );
 }
 
 /* DIAMOND */
-.diamond-tier {
-    box-shadow:
-        0 0 12px rgba(155,239,255,0.6),
-        0 0 22px rgba(155,239,255,0.35),
-        0 0 34px rgba(155,239,255,0.2);
+.diamond-tier::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #9befff,
+        #e0ffff,
+        transparent
+    );
 }
 
-/* LEGENDARY 🌈 (fixed rainbow glow) */
-.legendary-tier {
-    box-shadow:
-        0 0 10px rgba(255, 0, 0, 0.6),
-        0 0 18px rgba(255, 165, 0, 0.5),
-        0 0 26px rgba(255, 255, 0, 0.45),
-        0 0 34px rgba(0, 255, 255, 0.4),
-        0 0 42px rgba(0, 0, 255, 0.35),
-        0 0 50px rgba(138, 43, 226, 0.35);
+/* 🌈 LEGENDARY (ANIMATED RAINBOW EDGE) */
+.legendary-tier::after {
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet
+    );
+
+    animation:
+        sponsorSweep 1.5s linear infinite,
+        rainbowShift 4s linear infinite;
+}
+
+/* SWEEP MOTION */
+@keyframes sponsorSweep {
+    0% { left: -120%; }
+    100% { left: 120%; }
+}
+
+/* RAINBOW FLOW */
+@keyframes rainbowShift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* subtle outer glow (not thick) */
+.silver-tier:hover {
+    box-shadow: 0 0 12px rgba(192,192,192,0.3);
+}
+
+.gold-tier:hover {
+    box-shadow: 0 0 14px rgba(212,175,55,0.35);
+}
+
+.diamond-tier:hover {
+    box-shadow: 0 0 14px rgba(155,239,255,0.35);
+}
+
+.legendary-tier:hover {
+    box-shadow: 0 0 18px rgba(255,255,255,0.4);
 }
 
 /* HEADER GOLD LINE */
