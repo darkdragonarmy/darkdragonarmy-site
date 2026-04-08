@@ -1412,14 +1412,52 @@ footer {
     box-shadow: 0 0 20px rgba(155,239,255,0.4);
 }
 
-/* LEGENDARY PERK BORDER (MATCH STYLE) */
-.legendary-tier .perk-box:hover {
-    border-color: var(--color-fire);
+/* =========================
+   LEGENDARY PERK - RAINBOW BORDER (MATCH TIER)
+   ========================= */
 
-    box-shadow:
-        0 0 6px rgba(255,0,0,0.4),
-        0 0 10px rgba(255,165,0,0.35),
-        0 0 14px rgba(0,255,255,0.3);
+.legendary-tier .perk-box {
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+
+/* animated rainbow border */
+.legendary-tier .perk-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    padding: 2px;
+
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+
+    background-size: 300% 300%;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+    animation: legendaryBorderShift 4s linear infinite;
+}
+
+/* smooth rainbow movement */
+@keyframes legendaryBorderShift {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
 }
 
 /* =========================
