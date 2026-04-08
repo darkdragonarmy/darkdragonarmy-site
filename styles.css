@@ -724,21 +724,22 @@ nav a.active {
 
 .unit-director {
     display: inline-block;
-    margin: 0 auto; /* 👈 ADD THIS */
+    margin: 0 auto;
 
-    background: rgba(255, 69, 0, 0.1);
-    border: 1px solid var(--color-fire-dark);
+    background: transparent; /* 🔥 remove red tint */
+    border: 2px solid var(--color-gold); /* 🔥 gold border */
+
     border-radius: 20px;
     padding: 0.5rem 1.2rem;
+
     font-style: italic;
-    color: #ffffff; /* 🔥 clean white */
+    color: #ffffff;
     font-size: 0.95rem;
     position: relative;
+
+    transition: var(--transition-smooth);
 }
 
-.unit-card .btn {
-    border: 2px solid var(--color-gold);
-}
 
 /* Buttons */
 .btn {
