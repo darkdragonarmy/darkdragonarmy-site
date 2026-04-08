@@ -1617,3 +1617,53 @@ a.btn {
     flex-wrap: wrap;
 }
 
+/* =========================
+   FIRE EDGE EFFECT (EXTERNAL AFFAIRS STYLE)
+   ========================= */
+
+.fire-edge {
+    position: relative;
+    overflow: hidden;
+}
+
+/* animated edge layer */
+.fire-edge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 0 8px rgba(255, 69, 0, 0.4),
+        0 0 16px rgba(255, 69, 0, 0.25);
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* animation */
+.fire-edge:hover::before {
+    opacity: 1;
+    animation: firePulse 1.6s ease-in-out infinite;
+}
+
+@keyframes firePulse {
+    0% {
+        box-shadow:
+            0 0 4px rgba(255, 69, 0, 0.2),
+            0 0 10px rgba(255, 69, 0, 0.15);
+    }
+    50% {
+        box-shadow:
+            0 0 14px rgba(255, 69, 0, 0.6),
+            0 0 28px rgba(255, 69, 0, 0.35);
+    }
+    100% {
+        box-shadow:
+            0 0 4px rgba(255, 69, 0, 0.2),
+            0 0 10px rgba(255, 69, 0, 0.15);
+    }
+}
