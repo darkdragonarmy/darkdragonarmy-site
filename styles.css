@@ -1422,7 +1422,17 @@ footer {
     border-radius: 10px;
 }
 
-/* animated rainbow border */
+/* =========================
+   LEGENDARY PERK - RAINBOW BORDER (HOVER ONLY)
+   ========================= */
+
+.legendary-tier .perk-box {
+    position: relative;
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+}
+
+/* hidden by default */
 .legendary-tier .perk-box::before {
     content: "";
     position: absolute;
@@ -1451,7 +1461,19 @@ footer {
 
     mask-composite: exclude;
 
+    opacity: 0; /* 🔥 key fix */
+}
+
+/* SHOW ONLY ON HOVER */
+.legendary-tier .perk-box:hover::before {
+    opacity: 1;
     animation: legendaryBorderShift 4s linear infinite;
+}
+
+/* smooth rainbow movement */
+@keyframes legendaryBorderShift {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
 }
 
 /* smooth rainbow movement */
