@@ -1143,11 +1143,46 @@ footer {
     color: var(--color-text-secondary);
 }
 
-/* 🔥 GLOW EFFECT */
+/* =========================
+   COF GAME CARDS - FIRE EFFECT
+   ========================= */
+
+.game-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 🔥 sweep line */
+.game-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-fire),
+        var(--color-gold),
+        transparent
+    );
+
+    opacity: 0;
+}
+
+/* 🔥 activate on hover */
+.game-card:hover::after {
+    opacity: 1;
+    animation: cardSweep 1.5s linear infinite;
+}
+
+/* 🔥 border + glow */
 .game-card:hover {
     transform: translateY(-5px);
-    border-color: var(--color-gold);
-    box-shadow: 0 0 25px rgba(212,175,55,0.4);
+    border-color: var(--color-fire);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.35);
 }
 
 .host-access {
