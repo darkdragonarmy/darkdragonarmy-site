@@ -1398,60 +1398,66 @@ footer {
     100% { transform: translateY(0) scale(1); opacity: 0.9; }
 }
 
-/* 🔥 SILVER FLAME (tighter) */
-.silver-tier::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 12px;
-    background: linear-gradient(45deg, #c0c0c0, #e5e5e5, #a8a8a8);
-    filter: blur(6px);
-    opacity: 0.5;
-    z-index: -1;
-    animation: flameFlicker 2s infinite;
-}
+/* =========================
+   SPONSOR TIER EDGE GLOW (FIXED)
+   ========================= */
 
-/* 🔥 GOLD FLAME (tighter) */
-.gold-tier::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 12px;
-    background: linear-gradient(45deg, #d4af37, #ffd700, #ffae00);
-    filter: blur(7px);
-    opacity: 0.55;
-    z-index: -1;
-    animation: flameFlicker 1.8s infinite;
-}
-
-/* 💎 DIAMOND FLAME (tighter) */
-.diamond-tier::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 12px;
-    background: linear-gradient(45deg, #9befff, #e0ffff, #b8f5ff);
-    filter: blur(7px);
-    opacity: 0.6;
-    z-index: -1;
-    animation: flameFlicker 1.6s infinite;
-}
-
-/* 🌈 LEGENDARY RAINBOW (tighter but still special) */
+/* BASE GLOW STYLE */
+.silver-tier::before,
+.gold-tier::before,
+.diamond-tier::before,
 .legendary-tier::before {
     content: "";
     position: absolute;
-    inset: -2px;
-    border-radius: 14px;
+
+    /* 🔥 KEY CHANGE: push glow OUTSIDE */
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+
+    border-radius: 12px;
+    z-index: -1;
+
+    /* 🔥 creates edge-only glow */
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+
+    padding: 2px;
+
+    filter: blur(6px);
+    opacity: 0.7;
+
+    animation: flameFlicker 2s infinite;
+}
+
+/* SILVER */
+.silver-tier::before {
+    background: linear-gradient(45deg, #c0c0c0, #e5e5e5, #a8a8a8);
+}
+
+/* GOLD */
+.gold-tier::before {
+    background: linear-gradient(45deg, #d4af37, #ffd700, #ffae00);
+}
+
+/* DIAMOND */
+.diamond-tier::before {
+    background: linear-gradient(45deg, #9befff, #e0ffff, #b8f5ff);
+}
+
+/* LEGENDARY 🌈 */
+.legendary-tier::before {
     background: linear-gradient(
         45deg,
         red, orange, yellow, lime, cyan, blue, violet
     );
-    opacity: 0.75;
-    z-index: -1;
 
-    /* 🔥 tighter glow */
-    filter: blur(10px);
+    filter: blur(8px);
 
     animation:
         rainbowFlame 4s linear infinite,
