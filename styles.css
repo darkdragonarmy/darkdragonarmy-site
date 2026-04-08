@@ -1278,7 +1278,7 @@ footer {
     z-index: 0;           /* 🔥 keeps glow contained */
 }
 /* =========================
-   TRUE RUNNING BORDER (FINAL FIX)
+   SPONSOR FIRE BORDER (CLEAN + STABLE)
    ========================= */
 
 .silver-tier,
@@ -1288,90 +1288,66 @@ footer {
     position: relative;
 }
 
-/* ALL SIDES BASE */
+/* BORDER LAYER */
 .silver-tier::before,
 .gold-tier::before,
 .diamond-tier::before,
-.legendary-tier::before,
-.silver-tier::after,
-.gold-tier::after,
-.diamond-tier::after,
-.legendary-tier::after {
+.legendary-tier::before {
     content: "";
     position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    pointer-events: none;
+
+    border: 2px solid transparent;
 }
 
-/* TOP + BOTTOM (horizontal line) */
-.silver-tier::before,
-.gold-tier::before,
-.diamond-tier::before,
+/* 🔥 FLICKER BASE */
+@keyframes flickerBorder {
+    0%   { opacity: 0.6; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+/* SILVER */
+.silver-tier::before {
+    border-color: #c0c0c0;
+    box-shadow:
+        0 0 6px rgba(192,192,192,0.3),
+        0 0 12px rgba(192,192,192,0.2);
+    animation: flickerBorder 2.5s ease-in-out infinite;
+}
+
+/* GOLD */
+.gold-tier::before {
+    border-color: var(--color-gold);
+    box-shadow:
+        0 0 8px rgba(212,175,55,0.4),
+        0 0 16px rgba(212,175,55,0.25);
+    animation: flickerBorder 2.2s ease-in-out infinite;
+}
+
+/* DIAMOND */
+.diamond-tier::before {
+    border-color: #9befff;
+    box-shadow:
+        0 0 8px rgba(155,239,255,0.4),
+        0 0 16px rgba(155,239,255,0.25);
+    animation: flickerBorder 2.4s ease-in-out infinite;
+}
+
+/* LEGENDARY 🌈 */
 .legendary-tier::before {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
+    border-color: var(--color-fire);
+    box-shadow:
+        0 0 8px rgba(255,0,0,0.4),
+        0 0 12px rgba(255,165,0,0.35),
+        0 0 16px rgba(255,255,0,0.3),
+        0 0 20px rgba(0,255,255,0.3),
+        0 0 24px rgba(0,0,255,0.25),
+        0 0 28px rgba(138,43,226,0.25);
+    animation: flickerBorder 2s ease-in-out infinite;
 }
-
-/* RIGHT + LEFT (vertical line) */
-.silver-tier::after,
-.gold-tier::after,
-.diamond-tier::after,
-.legendary-tier::after {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-}
-
-/* COLORS */
-.silver-tier::before,
-.silver-tier::after {
-    background: #c0c0c0;
-}
-
-.gold-tier::before,
-.gold-tier::after {
-    background: #d4af37;
-}
-
-.diamond-tier::before,
-.diamond-tier::after {
-    background: #9befff;
-}
-
-.legendary-tier::before,
-.legendary-tier::after {
-    background: linear-gradient(
-        red, orange, yellow, lime, cyan, blue, violet
-    );
-}
-
-/* ANIMATION */
-.silver-tier::before,
-.gold-tier::before,
-.diamond-tier::before,
-.legendary-tier::before {
-    animation: moveTop 2s linear infinite;
-}
-
-.silver-tier::after,
-.gold-tier::after,
-.diamond-tier::after,
-.legendary-tier::after {
-    animation: moveRight 2s linear infinite;
-}
-
-/* KEYFRAMES */
-@keyframes moveTop {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
-
-@keyframes moveRight {
-    0% { top: -100%; }
-    100% { top: 100%; }
-}
-
 /* =========================
    PERK BOX (FINAL CLEAN SYSTEM)
    ========================= */
@@ -1436,15 +1412,14 @@ footer {
     box-shadow: 0 0 20px rgba(155,239,255,0.4);
 }
 
-/* LEGENDARY (RAINBOW FEEL — NOT STACKED) */
+/* LEGENDARY PERK BORDER (MATCH STYLE) */
 .legendary-tier .perk-box:hover {
-    border-color: transparent;
+    border-color: var(--color-fire);
 
-    box-shadow: 
-        0 0 10px rgba(255,0,0,0.4),
-        0 0 15px rgba(255,165,0,0.35),
-        0 0 20px rgba(0,255,255,0.3),
-        0 0 25px rgba(138,43,226,0.3);
+    box-shadow:
+        0 0 6px rgba(255,0,0,0.4),
+        0 0 10px rgba(255,165,0,0.35),
+        0 0 14px rgba(0,255,255,0.3);
 }
 
 /* =========================
