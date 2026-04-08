@@ -507,11 +507,44 @@ nav a.active {
     transition: var(--transition-smooth);
 }
 
+/* =========================
+   RANKLIST FIRE HOVER
+   ========================= */
+
 .rank-item:hover {
-    border-color: var(--color-gold);
+    border-color: var(--color-fire); /* 🔥 red border */
     background: var(--color-bg-hover);
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.35); /* 🔥 glow */
 }
 
+.rank-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.rank-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-fire),
+        var(--color-gold),
+        transparent
+    );
+
+    opacity: 0;
+}
+
+.rank-item:hover::before {
+    opacity: 1;
+    animation: cardSweep 1.5s linear infinite;
+}
 .rank-number {
     font-family: var(--font-heading);
     font-size: 0.9rem;
