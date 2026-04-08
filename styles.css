@@ -500,11 +500,16 @@ nav a.active {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: 4px;
-    padding: 0.8rem 1.2rem;
+    padding: 1rem;
+
     display: flex;
-    align-items: center;
-    gap: 0.8rem;
+    flex-direction: column;   /* 🔥 THIS is the key fix */
+    align-items: center;      /* center everything */
+
+    gap: 0.2rem;
+
     transition: var(--transition-smooth);
+    text-align: center;
 }
 
 /* =========================
