@@ -512,6 +512,11 @@ nav a.active {
     text-align: center;
 }
 
+.rank-item:hover .rank-points {
+    color: var(--color-fire);
+    text-shadow: 0 0 8px rgba(255, 69, 0, 0.4);
+}
+
 /* =========================
    RANKLIST FIRE HOVER
    ========================= */
