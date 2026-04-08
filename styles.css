@@ -1399,69 +1399,39 @@ footer {
 }
 
 /* =========================
-   SPONSOR TIER EDGE GLOW (FIXED)
+   SPONSOR TIER EDGE GLOW (CLEAN OUTLINE ONLY)
    ========================= */
 
-/* BASE GLOW STYLE */
-.silver-tier::before,
-.gold-tier::before,
-.diamond-tier::before,
-.legendary-tier::before {
-    content: "";
-    position: absolute;
-
-    /* 🔥 KEY CHANGE: push glow OUTSIDE */
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-
-    border-radius: 12px;
-    z-index: -1;
-
-    /* 🔥 creates edge-only glow */
-    mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-
-    padding: 2px;
-
-    filter: blur(6px);
-    opacity: 0.7;
-
-    animation: flameFlicker 2s infinite;
-}
-
 /* SILVER */
-.silver-tier::before {
-    background: linear-gradient(45deg, #c0c0c0, #e5e5e5, #a8a8a8);
+.silver-tier {
+    box-shadow:
+        0 0 6px rgba(192,192,192,0.35),
+        0 0 12px rgba(192,192,192,0.2);
 }
 
 /* GOLD */
-.gold-tier::before {
-    background: linear-gradient(45deg, #d4af37, #ffd700, #ffae00);
+.gold-tier {
+    box-shadow:
+        0 0 8px rgba(212,175,55,0.45),
+        0 0 14px rgba(212,175,55,0.25);
 }
 
 /* DIAMOND */
-.diamond-tier::before {
-    background: linear-gradient(45deg, #9befff, #e0ffff, #b8f5ff);
+.diamond-tier {
+    box-shadow:
+        0 0 8px rgba(155,239,255,0.45),
+        0 0 14px rgba(155,239,255,0.25);
 }
 
-/* LEGENDARY 🌈 */
-.legendary-tier::before {
-    background: linear-gradient(
-        45deg,
-        red, orange, yellow, lime, cyan, blue, violet
-    );
-
-    filter: blur(8px);
-
-    animation:
-        rainbowFlame 4s linear infinite,
-        flameFlicker 1.5s infinite;
+/* LEGENDARY 🌈 (rainbow edge glow) */
+.legendary-tier {
+    box-shadow:
+        0 0 8px rgba(255,0,0,0.4),
+        0 0 12px rgba(255,165,0,0.35),
+        0 0 16px rgba(255,255,0,0.3),
+        0 0 20px rgba(0,255,255,0.3),
+        0 0 24px rgba(0,0,255,0.25),
+        0 0 28px rgba(138,43,226,0.25);
 }
 
 /* HEADER GOLD LINE */
