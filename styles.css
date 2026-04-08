@@ -736,6 +736,10 @@ nav a.active {
     position: relative;
 }
 
+.unit-card .btn {
+    border: 2px solid var(--color-gold);
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
