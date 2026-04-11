@@ -156,4 +156,15 @@
     </script>
 
 
-</body></html>
+</body><script>
+function enterTransferCommand() {
+    let password = prompt("Enter Transfer Command Access Code:");
+
+    if (password === "DDA-TRANSFER") {
+        window.location.href = "transfer-command.html";
+    } else if (password !== null) {
+        alert("Access Denied");
+    }
+}
+</script>
+</html>
