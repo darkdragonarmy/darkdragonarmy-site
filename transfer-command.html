@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Command | Dark Dragon Army</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- 🔐 PASSWORD PROTECTION -->
+<script>
+const ACCESS_CODE = "DDA-TRANSFER";
+
+let storedAccess = sessionStorage.getItem("transferAccess");
+
+if (storedAccess !== "granted") {
+    let input = prompt("Enter Transfer Command Access Code:");
+
+    if (input === ACCESS_CODE) {
+        sessionStorage.setItem("transferAccess", "granted");
+    } else {
+        document.body.innerHTML = `
+            <div style="text-align:center; margin-top:100px;">
+                <h2 style="color:#d4af37;">Access Denied</h2>
+                <p>You are not authorized to access the Transfer Command.</p>
+            </div>
+        `;
+    }
+}
+</script>
+
+<!-- HEADER -->
+<header>
+    <div class="container header-content">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"></div>
+            <h1><span class="logo-dragon">Dark Dragon</span> <span class="logo-army">Army</span></h1>
+        </a>
+
+        <button class="nav-toggle" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ranklist.html">Ranklist</a></li>
+                <li><a href="guilds.html">Guilds</a></li>
+                <li><a href="sponsorship.html">Sponsorship</a></li>
+                <li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
+                <li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main class="section">
+    <div class="container">
+
+        <!-- HERO -->
+        <div class="section-header">
+
+            <img src="images/transfer-office.png" class="cof-badge">
+
+            <h2 class="cof-title">Transfer Command</h2>
+
+            <p class="cof-subtitle">
+                Internal Operations & Recruitment Division
+            </p>
+
+            <p class="cof-description">
+                This area is restricted to authorized Transfer Guild members.
+                Use the tools below to evaluate, process, and recruit incoming transfers.
+            </p>
+
+        </div>
+
+        <!-- GRID -->
+        <div class="cards-grid">
+
+            <!-- TOOL -->
+            <div class="card">
+                <h3>⚖️ Rank Conversion Tool</h3>
+                <p>Determine equivalent ranks between agencies using the official conversion system.</p>
+                <div class="text-center mt-2">
+                    <a href="https://frequence.pages.dev/tools/transfer-units" target="_blank" class="btn">
+                        Open Tool
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROCEDURE -->
+            <div class="card">
+                <h3>📘 Transfer Procedure</h3>
+                <p>Step-by-step process for handling incoming transfer applications.</p>
+                <div class="text-center mt-2">
+                    <a href="#" class="btn">View Guide</a>
+                </div>
+            </div>
+
+            <!-- RECRUITMENT -->
+            <div class="card">
+                <h3>🧠 Recruitment Guide</h3>
+                <p>Best practices for approaching and converting experienced players.</p>
+                <div class="text-center mt-2">
+                    <a href="#" class="btn">View Guide</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- OPTIONAL NOTICE -->
+        <div class="notice-banner">
+            <p>
+                ⚠️ Do not share access codes or internal procedures outside the Transfer Guild.
+            </p>
+        </div>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>Dark Dragon Army</h4>
+                <p>Medieval Habbo Agency</p>
+            </div>
+
+            <div class="footer-links">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ranklist.html">Ranklist</a></li>
+                    <li><a href="guilds.html">Guilds</a></li>
+                    <li><a href="sponsorship.html">Sponsorship</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h5>External</h5>
+                <ul>
+                    <li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
+                    <li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
+                    <li><a href="mailto:darkdragonarmy782@gmail.com">Email Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-disclaimer">
+            <p>This website is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Corporation Oy.</p>
+            <p><strong>Copyright © Dark Dragon Army 2026</strong></p>
+        </div>
+    </div>
+</footer>
+
+<!-- NAV SCRIPT -->
+<script>
+function toggleNav() {
+    document.getElementById('main-nav').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
