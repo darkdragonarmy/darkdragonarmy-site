@@ -1910,3 +1910,7 @@ a.btn {
     color: var(--color-text-muted);
     font-style: italic;
 }
+.featured-card {
+    width: 100%;
+    max-width: 900px;
+}
