@@ -1914,3 +1914,22 @@ a.btn {
     width: 100%;
     max-width: 900px;
 }
+/* =========================
+   BUILDERS PAGE FIX (SAFE)
+   ========================= */
+
+/* Top Builders card (wide but controlled) */
+.builders-main {
+    width: 100%;
+    max-width: 950px;
+}
+
+/* Bottom 2-card layout */
+.builders-subgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    max-width: 950px;
+    margin: 40px auto 0 auto;
+}
