@@ -1962,3 +1962,77 @@ a.btn {
     margin-top: 10px;
     margin-bottom: 15px;
 }
+/* =========================
+   BUILDERS PAGE FINAL FIX
+   ========================= */
+
+/* ===== TOP CARD ===== */
+.builders-main {
+    width: 80% !important;
+    margin: 0 auto !important;
+    text-align: center;
+}
+
+/* Remove default fixed width */
+.builders-main.card {
+    width: 80% !important;
+}
+
+/* ===== SUB GRID ===== */
+.builders-subgrid {
+    display: flex;
+    justify-content: space-between;
+
+    width: 80%;
+    margin: 40px auto 0 auto;
+    gap: 4%;
+}
+
+/* ===== BOTTOM CARDS ===== */
+.builders-subgrid .card {
+    width: 48% !important; /* 48 + 48 + gap ≈ 100 */
+    text-align: center;
+}
+
+/* ===== CENTER EVERYTHING ===== */
+.builders-main h3,
+.builders-subgrid h3 {
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+/* ===== FIX AVATARS (NO MORE CUT OFF) ===== */
+.builders-main .hero-avatars,
+.builders-subgrid .hero-avatars {
+    display: flex !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* ===== FIX AVATAR SIZE ===== */
+.builders-subgrid .avatar-container {
+    width: 90px;
+    flex-shrink: 0;
+}
+
+/* ===== FORCE IMAGE CENTER ===== */
+.avatar-container img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* ===== FIX SPACING ===== */
+.builders-main .unit-icon {
+    margin-bottom: 15px;
+}
+
+.builders-main h3 {
+    margin-bottom: 15px;
+}
+
+/* ===== CREATIVE BADGE BIGGER ===== */
+.builders-subgrid .card img[src*="Creative"] {
+    width: 160px !important;
+}
