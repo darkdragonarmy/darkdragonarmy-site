@@ -1927,9 +1927,38 @@ a.btn {
 /* Bottom 2-card layout */
 .builders-subgrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
 
-    max-width: 950px;
+    max-width: 80%;   /* 👈 MATCHES TOP */
     margin: 40px auto 0 auto;
+}
+.builders-main {
+    width: 100%;
+    max-width: 80%;   /* 👈 THIS is your 80% width */
+    margin: 0 auto;
+    text-align: center;
+}
+.builders-main .hero-avatars {
+    justify-content: center;
+}
+.builders-subgrid .card {
+    text-align: center;
+}
+.builders-subgrid .hero-avatars {
+    justify-content: center;
+}
+.unit-icon {
+    display: block;
+    margin: 0 auto 15px auto;
+}
+.centered-title {
+    text-align: center;
+}
+.card {
+    padding: 2.5rem 2rem;
+}
+.card h3 {
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
