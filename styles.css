@@ -1930,12 +1930,12 @@ a.btn {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
 
-    max-width: 80%;   /* 👈 MATCHES TOP */
+    max-width: 95%;   /* 👈 MATCHES TOP */
     margin: 40px auto 0 auto;
 }
 .builders-main {
     width: 100%;
-    max-width: 80%;   /* 👈 THIS is your 80% width */
+    max-width: 95%;   /* 👈 THIS is your 80% width */
     margin: 0 auto;
     text-align: center;
 }
