@@ -1919,10 +1919,6 @@ a.btn {
    ========================= */
 
 /* Top Builders card (wide but controlled) */
-.builders-main {
-    width: 100%;
-    max-width: 950px;
-}
 
 /* Bottom 2-card layout */
 .builders-subgrid {
@@ -1930,12 +1926,12 @@ a.btn {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
 
-    max-width: 95%;   /* 👈 MATCHES TOP */
+    max-width: 90%;   /* 👈 MATCHES TOP */
     margin: 40px auto 0 auto;
 }
 .builders-main {
     width: 100%;
-    max-width: 95%;   /* 👈 THIS is your 80% width */
+    max-width: 90%;   /* 👈 THIS is your 80% width */
     margin: 0 auto;
     text-align: center;
 }
