@@ -2013,7 +2013,7 @@ a.btn {
 
 /* ===== FIX AVATAR SIZE ===== */
 .builders-subgrid .avatar-container {
-    width: 90px;
+    width: 180px;
     flex-shrink: 0;
 }
 
