@@ -1919,6 +1919,10 @@ a.btn {
    ========================= */
 
 /* Top Builders card (wide but controlled) */
+.builders-main {
+    width: 100%;
+    max-width: 950px;
+}
 
 /* Bottom 2-card layout */
 .builders-subgrid {
