@@ -1979,3 +1979,11 @@ a.btn {
   color: black;
   box-shadow: 0 0 15px gold;
 }
+.main-feature {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.main-feature .guild-badge {
+  width: 160px;
+}
