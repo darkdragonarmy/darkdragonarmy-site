@@ -329,9 +329,10 @@ nav a.active {
 
 .avatar-container img {
     display: block;
-    width: 50%; /* 👈 THIS controls size */
+    width: 35%;        /* 🔥 smaller avatars */
+    max-width: 80px;   /* 🔥 prevents them from getting big */
     height: auto;
-    margin: 0 auto; /* keeps it centered */
+    margin: 0 auto;
     image-rendering: pixelated;
 }
 
