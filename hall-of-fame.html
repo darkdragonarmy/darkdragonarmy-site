@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hall of Fame | Dark Dragon Army</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<!-- HEADER (UNCHANGED) -->
+<header>
+    <div class="container header-content">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"></div>
+            <h1><span class="logo-dragon">Dark Dragon</span> <span class="logo-army">Army</span></h1>
+        </a>
+
+        <button class="nav-toggle" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ranklist.html">Ranklist</a></li>
+                <li><a href="guilds.html">Guilds</a></li>
+                <li><a href="sponsorship.html">Sponsorship</a></li>
+                <li><a href="hall-of-fame.html" class="active">Hall of Fame</a></li>
+                <li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
+                <li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <h1>Hall of Fame</h1>
+        <p class="hero-subtitle">Honoring the Champions of the Realm</p>
+    </div>
+</section>
+
+<!-- MAIN -->
+<main>
+
+<!-- OVERALL -->
+<section class="section">
+<div class="container">
+
+<div class="section-header">
+    <h2>🏆 Overall Castle Member of the Month</h2>
+</div>
+
+<div class="cards-grid">
+    <div class="card featured-card text-center">
+        <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=USERNAME&size=xl">
+        <h3>USERNAME</h3>
+        <p>The highest honor in the realm</p>
+    </div>
+</div>
+
+</div>
+</section>
+
+<!-- KNIGHT + DWELLER -->
+<section class="section" style="background: linear-gradient(180deg, var(--color-bg-secondary), var(--color-bg-primary));">
+<div class="container">
+
+<div class="section-header">
+    <h2>⚔️ Monthly Champions</h2>
+</div>
+
+<div class="cards-grid">
+
+    <div class="card text-center">
+        <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=USERNAME&size=xl">
+        <h3>Top Knight</h3>
+        <p>USERNAME</p>
+    </div>
+
+    <div class="card text-center">
+        <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=USERNAME&size=xl">
+        <h3>Top Castle Dweller</h3>
+        <p>USERNAME</p>
+    </div>
+
+</div>
+
+</div>
+</section>
+
+<!-- SPECIAL VISITOR -->
+<section class="section">
+<div class="container">
+
+<div class="section-header">
+    <h2>🎟️ Top Special Visitor</h2>
+</div>
+
+<div class="cards-grid">
+    <div class="card text-center">
+        <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=USERNAME&size=xl">
+        <h3>USERNAME</h3>
+        <p>Most Dedicated Visitor</p>
+    </div>
+</div>
+
+</div>
+</section>
+
+<!-- AFK OFFENDER -->
+<section class="section">
+<div class="container">
+
+<div class="section-header">
+    <h2>⚠️ Most Wanted</h2>
+</div>
+
+<div class="wanted-poster">
+    <h2>WANTED</h2>
+
+    <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=USERNAME&size=xl">
+
+    <h3>USERNAME</h3>
+
+    <p>Top AFK Offender of the Month</p>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER (UNCHANGED) -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>Dark Dragon Army</h4>
+                <p>Medieval Habbo Agency</p>
+            </div>
+
+            <div class="footer-links">
+                <h5>Navigation</h5>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/ranklist.html">Ranklist</a></li>
+                    <li><a href="/guilds.html">Guilds</a></li>
+                    <li><a href="/hall-of-fame.html">Hall of Fame</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+function toggleNav() {
+    document.getElementById('main-nav').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
