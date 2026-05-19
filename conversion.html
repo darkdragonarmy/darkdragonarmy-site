@@ -34,7 +34,77 @@
         </div>
     </header>
 
-   
+   <!-- Conversion Calculator Section -->
+
+<section class="conversion-page">
+
+    <div class="conversion-container">
+
+        <div class="conversion-title">
+            Conversion Calculator
+        </div>
+
+        <!-- Coins to RP -->
+        <div class="conversion-row">
+
+            <div class="conversion-section">
+                <div class="conversion-label">Coins</div>
+
+                <input 
+                    type="number" 
+                    id="coinsInput" 
+                    class="conversion-input"
+                    oninput="convertCoins()"
+                >
+            </div>
+
+            <div class="conversion-arrow">>>></div>
+
+            <div class="conversion-section">
+                <div class="conversion-label">Rank Points</div>
+
+                <div class="conversion-output" id="rpOutput">
+                    0
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pay Points to Coins -->
+        <div class="conversion-row">
+
+            <div class="conversion-section">
+                <div class="conversion-label">Pay Points</div>
+
+                <input 
+                    type="number" 
+                    id="payInput" 
+                    class="conversion-input"
+                    oninput="convertPayPoints()"
+                >
+            </div>
+
+            <div class="conversion-arrow">>>></div>
+
+            <div class="conversion-section">
+                <div class="conversion-label">Coins</div>
+
+                <div class="conversion-output" id="coinOutput">
+                    0
+                </div>
+            </div>
+
+        </div>
+
+        <div class="conversion-buttons">
+            <button onclick="resetCalculator()">
+                RESET
+            </button>
+        </div>
+
+    </div>
+
+</section>
 
     <!-- Footer -->
     <footer>
