@@ -19,28 +19,9 @@
    FIRE THEMED CONVERSION CALCULATOR
 ========================================= */
 
-.conversion-page{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:180px 20px 120px;
-}
+.conversion-page{ width:100%; min-height:100vh; display:flex; justify-content:center; align-items:center; padding:180px 20px 120px; margin:0 auto; }
 
-.conversion-container{
-    width:100%;
-    max-width:950px;
-    background:rgba(0,0,0,0.92);
-    border:2px solid #ff2a00;
-    position:relative;
-    padding:55px;
-    overflow:hidden;
-
-    box-shadow:
-        0 0 10px rgba(255,0,0,0.5),
-        0 0 25px rgba(255,0,0,0.4),
-        0 0 40px rgba(255,80,0,0.2);
-}
+.conversion-container{ width:100%; max-width:950px; margin:0 auto; background: linear-gradient( 180deg, rgba(15,0,0,0.95) 0%, rgba(35,0,0,0.96) 50%, rgba(15,0,0,0.95) 100% ); border:2px solid #8b0000; position:relative; padding:55px; overflow:hidden; box-shadow: 0 0 10px rgba(139,0,0,0.8), 0 0 25px rgba(139,0,0,0.6), 0 0 40px rgba(90,0,0,0.5); }
 
 /* =========================================
    ANIMATED FIRE BORDER
@@ -83,61 +64,7 @@
    TITLE BAR
 ========================================= */
 
-.conversion-title{
-
-    position:relative;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffcc66 0%,
-            #ff9d00 30%,
-            #ff4d00 65%,
-            #a10000 100%
-        );
-
-    color:white;
-
-    text-align:center;
-
-    font-size:46px;
-    font-weight:bold;
-    letter-spacing:2px;
-
-    padding:18px;
-
-    margin-bottom:80px;
-
-    border:2px solid #ff7b00;
-
-    text-shadow:
-        0 0 5px #fff,
-        0 0 10px #ff8800,
-        0 0 20px red;
-
-    box-shadow:
-        0 0 10px rgba(255,100,0,0.7),
-        inset 0 0 10px rgba(255,255,255,0.2);
-
-    animation:titleFire 2s infinite alternate;
-}
-
-@keyframes titleFire{
-
-    from{
-        box-shadow:
-            0 0 10px rgba(255,80,0,0.5),
-            0 0 20px rgba(255,0,0,0.4);
-    }
-
-    to{
-        box-shadow:
-            0 0 15px rgba(255,120,0,0.8),
-            0 0 35px rgba(255,0,0,0.7);
-    }
-
-}
-
+.conversion-title{ position:relative; background: linear-gradient( 180deg, #5c0000 0%, #7a0000 40%, #8b0000 70%, #3a0000 100% ); color:white; text-align:center; font-size:46px; font-weight:bold; letter-spacing:2px; padding:18px; margin-bottom:80px; border:2px solid #b30000; text-shadow: 0 0 5px rgba(255,255,255,0.2), 0 0 10px red; box-shadow: 0 0 15px rgba(139,0,0,0.8), inset 0 0 15px rgba(255,255,255,0.08); }
 /* =========================================
    ROWS
 ========================================= */
@@ -276,46 +203,7 @@
    BUTTON
 ========================================= */
 
-.conversion-buttons{
-    text-align:center;
-}
-
-.conversion-buttons button{
-
-    position:relative;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffcc66 0%,
-            #ff9d00 20%,
-            #ff4d00 55%,
-            #8b0000 100%
-        );
-
-    color:white;
-
-    border:2px solid #ffb347;
-
-    padding:16px 50px;
-
-    font-size:26px;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:0.3s;
-
-    text-shadow:
-        0 0 5px rgba(255,255,255,0.5),
-        0 0 10px red;
-
-    box-shadow:
-        0 0 10px rgba(255,80,0,0.6),
-        0 0 20px rgba(255,0,0,0.5);
-
-    overflow:hidden;
-}
+.conversion-buttons button{ position:relative; background: linear-gradient( 180deg, #5c0000 0%, #8b0000 50%, #3a0000 100% ); color:white; border:2px solid #b30000; padding:16px 50px; font-size:26px; font-weight:bold; cursor:pointer; transition:0.3s; text-shadow: 0 0 5px rgba(255,255,255,0.2), 0 0 10px red; box-shadow: 0 0 10px rgba(139,0,0,0.8), 0 0 25px rgba(90,0,0,0.7); overflow:hidden; } .conversion-buttons button:hover{ transform:scale(1.05); background: linear-gradient( 180deg, #7a0000 0%, #b30000 50%, #5c0000 100% ); box-shadow: 0 0 15px rgba(255,0,0,0.9), 0 0 30px rgba(139,0,0,0.8); }
 
 /* FIRE SHIMMER */
 
