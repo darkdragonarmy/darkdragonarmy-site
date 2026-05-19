@@ -14,150 +14,369 @@
 
     <style>
 
-        /* =========================================
-           CONVERSION CALCULATOR
-        ========================================= */
+       ```css id="70v6d6"
+/* =========================================
+   FIRE THEMED CONVERSION CALCULATOR
+========================================= */
 
-        .conversion-page{
-            width:100%;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            padding:180px 20px 120px;
-        }
+.conversion-page{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:180px 20px 120px;
+}
 
-        .conversion-container{
-            width:100%;
-            max-width:950px;
-            background:#000;
-            border:2px solid red;
-            position:relative;
-            padding:50px;
-            box-shadow:
-                0 0 10px rgba(255,0,0,0.5),
-                0 0 25px rgba(255,0,0,0.4);
-        }
+.conversion-container{
+    width:100%;
+    max-width:950px;
+    background:rgba(0,0,0,0.92);
+    border:2px solid #ff2a00;
+    position:relative;
+    padding:55px;
+    overflow:hidden;
 
-        /* Animated Border */
+    box-shadow:
+        0 0 10px rgba(255,0,0,0.5),
+        0 0 25px rgba(255,0,0,0.4),
+        0 0 40px rgba(255,80,0,0.2);
+}
 
-        .conversion-container::before{
-            content:"";
-            position:absolute;
-            inset:-2px;
-            border:2px solid red;
-            pointer-events:none;
-            animation:borderGlow 2s linear infinite;
-        }
+/* =========================================
+   ANIMATED FIRE BORDER
+========================================= */
 
-        @keyframes borderGlow{
+.conversion-container::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border:2px solid red;
+    pointer-events:none;
 
-            0%{
-                box-shadow:0 0 5px red;
-            }
+    animation:borderFire 2s linear infinite;
+}
 
-            50%{
-                box-shadow:
-                    0 0 15px red,
-                    0 0 30px darkred;
-            }
+@keyframes borderFire{
 
-            100%{
-                box-shadow:0 0 5px red;
-            }
+    0%{
+        box-shadow:
+            0 0 5px red,
+            0 0 10px darkred;
+    }
 
-        }
+    50%{
+        box-shadow:
+            0 0 12px red,
+            0 0 25px orangered,
+            0 0 40px darkred;
+    }
 
-        .conversion-title{
-            background:#9b9160;
-            color:#000;
-            text-align:center;
-            font-size:42px;
-            font-weight:bold;
-            padding:15px;
-            margin-bottom:70px;
-        }
+    100%{
+        box-shadow:
+            0 0 5px red,
+            0 0 10px darkred;
+    }
 
-        .conversion-row{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            gap:30px;
-            margin-bottom:80px;
-        }
+}
 
-        .conversion-section{
-            flex:1;
-        }
+/* =========================================
+   TITLE BAR
+========================================= */
 
-        .conversion-label{
-            color:white;
-            text-align:center;
-            font-size:40px;
-            font-weight:bold;
-            margin-bottom:20px;
-        }
+.conversion-title{
 
-        .conversion-input{
-            width:100%;
-            height:65px;
-            border:none;
-            background:#ddd;
-            font-size:30px;
-            text-align:center;
-            font-weight:bold;
-        }
+    position:relative;
 
-        .conversion-output{
-            width:100%;
-            height:65px;
-            background:#ddd;
-            color:#000;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:30px;
-            font-weight:bold;
-        }
+    background:
+        linear-gradient(
+            180deg,
+            #ffcc66 0%,
+            #ff9d00 30%,
+            #ff4d00 65%,
+            #a10000 100%
+        );
 
-        .conversion-arrow{
-            color:white;
-            font-size:55px;
-            font-weight:bold;
-        }
+    color:white;
 
-        .conversion-buttons{
-            text-align:center;
-        }
+    text-align:center;
 
-        .conversion-buttons button{
-            background:#9b9160;
-            color:black;
-            border:none;
-            padding:15px 45px;
-            font-size:24px;
-            font-weight:bold;
-            cursor:pointer;
-            transition:0.3s;
-        }
+    font-size:46px;
+    font-weight:bold;
+    letter-spacing:2px;
 
-        .conversion-buttons button:hover{
-            background:#cdbf7d;
-            transform:scale(1.05);
-        }
+    padding:18px;
 
-        /* MOBILE */
+    margin-bottom:80px;
 
-        @media(max-width:768px){
+    border:2px solid #ff7b00;
 
-            .conversion-row{
-                flex-direction:column;
-            }
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #ff8800,
+        0 0 20px red;
 
-            .conversion-arrow{
-                transform:rotate(90deg);
-            }
+    box-shadow:
+        0 0 10px rgba(255,100,0,0.7),
+        inset 0 0 10px rgba(255,255,255,0.2);
 
-        }
+    animation:titleFire 2s infinite alternate;
+}
+
+@keyframes titleFire{
+
+    from{
+        box-shadow:
+            0 0 10px rgba(255,80,0,0.5),
+            0 0 20px rgba(255,0,0,0.4);
+    }
+
+    to{
+        box-shadow:
+            0 0 15px rgba(255,120,0,0.8),
+            0 0 35px rgba(255,0,0,0.7);
+    }
+
+}
+
+/* =========================================
+   ROWS
+========================================= */
+
+.conversion-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+    margin-bottom:80px;
+}
+
+.conversion-section{
+    flex:1;
+}
+
+.conversion-label{
+    color:white;
+    text-align:center;
+
+    font-size:40px;
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+    text-shadow:
+        0 0 5px red,
+        0 0 10px darkred;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.conversion-input{
+
+    width:100%;
+    height:68px;
+
+    border:2px solid #ff3300;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f5f5f5 0%,
+            #d7d7d7 100%
+        );
+
+    color:black;
+
+    font-size:32px;
+    text-align:center;
+    font-weight:bold;
+
+    transition:0.3s;
+
+    box-shadow:
+        inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.conversion-input:focus{
+
+    outline:none;
+
+    border-color:#ff9900;
+
+    box-shadow:
+        0 0 10px rgba(255,120,0,0.8),
+        0 0 20px rgba(255,0,0,0.5);
+
+}
+
+/* =========================================
+   OUTPUTS
+========================================= */
+
+.conversion-output{
+
+    width:100%;
+    height:68px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ececec 0%,
+            #cfcfcf 100%
+        );
+
+    border:2px solid #ff3300;
+
+    color:black;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:32px;
+    font-weight:bold;
+
+    box-shadow:
+        inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   ARROWS
+========================================= */
+
+.conversion-arrow{
+
+    color:white;
+
+    font-size:58px;
+    font-weight:bold;
+
+    text-shadow:
+        0 0 5px red,
+        0 0 10px orangered,
+        0 0 20px darkred;
+
+    animation:arrowPulse 1.5s infinite alternate;
+}
+
+@keyframes arrowPulse{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.08);
+    }
+
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.conversion-buttons{
+    text-align:center;
+}
+
+.conversion-buttons button{
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffcc66 0%,
+            #ff9d00 20%,
+            #ff4d00 55%,
+            #8b0000 100%
+        );
+
+    color:white;
+
+    border:2px solid #ffb347;
+
+    padding:16px 50px;
+
+    font-size:26px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,0.5),
+        0 0 10px red;
+
+    box-shadow:
+        0 0 10px rgba(255,80,0,0.6),
+        0 0 20px rgba(255,0,0,0.5);
+
+    overflow:hidden;
+}
+
+/* FIRE SHIMMER */
+
+.conversion-buttons button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    transition:0.5s;
+}
+
+.conversion-buttons button:hover::before{
+    left:120%;
+}
+
+.conversion-buttons button:hover{
+
+    transform:scale(1.06);
+
+    box-shadow:
+        0 0 15px rgba(255,120,0,0.9),
+        0 0 30px rgba(255,0,0,0.7);
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+    .conversion-row{
+        flex-direction:column;
+    }
+
+    .conversion-arrow{
+        transform:rotate(90deg);
+    }
+
+    .conversion-title{
+        font-size:34px;
+    }
+
+}
+```
+
 
     </style>
 
