@@ -1,153 +1,428 @@
+```html
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Dragon Army | Medieval Habbo Agency</title>
+
+    <title>Dark Dragon Army | Conversion Calculator</title>
+
     <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 24 24&#39; fill=&#39;%23d4af37&#39;%3E%3Cpath d=&#39;M12 2C8 6 6 10 6 14c0 4 3 6 6 6s6-2 6-6c0-4-2-8-6-12z&#39;/%3E%3C/svg%3E">
+
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4af37'%3E%3Cpath d='M12 2C8 6 6 10 6 14c0 4 3 6 6 6s6-2 6-6c0-4-2-8-6-12z'/%3E%3C/svg%3E">
+
+    <style>
+
+        /* =========================================
+           CONVERSION CALCULATOR
+        ========================================= */
+
+        .conversion-page{
+            width:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:180px 20px 120px;
+        }
+
+        .conversion-container{
+            width:100%;
+            max-width:950px;
+            background:#000;
+            border:2px solid red;
+            position:relative;
+            padding:50px;
+            box-shadow:
+                0 0 10px rgba(255,0,0,0.5),
+                0 0 25px rgba(255,0,0,0.4);
+        }
+
+        /* Animated Border */
+
+        .conversion-container::before{
+            content:"";
+            position:absolute;
+            inset:-2px;
+            border:2px solid red;
+            pointer-events:none;
+            animation:borderGlow 2s linear infinite;
+        }
+
+        @keyframes borderGlow{
+
+            0%{
+                box-shadow:0 0 5px red;
+            }
+
+            50%{
+                box-shadow:
+                    0 0 15px red,
+                    0 0 30px darkred;
+            }
+
+            100%{
+                box-shadow:0 0 5px red;
+            }
+
+        }
+
+        .conversion-title{
+            background:#9b9160;
+            color:#000;
+            text-align:center;
+            font-size:42px;
+            font-weight:bold;
+            padding:15px;
+            margin-bottom:70px;
+        }
+
+        .conversion-row{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:30px;
+            margin-bottom:80px;
+        }
+
+        .conversion-section{
+            flex:1;
+        }
+
+        .conversion-label{
+            color:white;
+            text-align:center;
+            font-size:40px;
+            font-weight:bold;
+            margin-bottom:20px;
+        }
+
+        .conversion-input{
+            width:100%;
+            height:65px;
+            border:none;
+            background:#ddd;
+            font-size:30px;
+            text-align:center;
+            font-weight:bold;
+        }
+
+        .conversion-output{
+            width:100%;
+            height:65px;
+            background:#ddd;
+            color:#000;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+            font-weight:bold;
+        }
+
+        .conversion-arrow{
+            color:white;
+            font-size:55px;
+            font-weight:bold;
+        }
+
+        .conversion-buttons{
+            text-align:center;
+        }
+
+        .conversion-buttons button{
+            background:#9b9160;
+            color:black;
+            border:none;
+            padding:15px 45px;
+            font-size:24px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .conversion-buttons button:hover{
+            background:#cdbf7d;
+            transform:scale(1.05);
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            .conversion-row{
+                flex-direction:column;
+            }
+
+            .conversion-arrow{
+                transform:rotate(90deg);
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
+
     <!-- Header -->
+
     <header>
         <div class="container header-content">
+
             <a href="index.html" class="logo">
                 <div class="logo-icon"></div>
-                <h1><span class="logo-dragon">Dark Dragon</span> <span class="logo-army">Army</span></h1>
+
+                <h1>
+                    <span class="logo-dragon">Dark Dragon</span>
+                    <span class="logo-army">Army</span>
+                </h1>
             </a>
-            
-            <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+
+            <button class="nav-toggle"
+                aria-label="Toggle navigation"
+                onclick="toggleNav()">
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </button>
-            
+
             <nav id="main-nav">
+
                 <ul>
                     <li><a href="index.html">Home</a></li>
-<li><a href="ranklist.html">Ranklist</a></li>
-<li><a href="guilds.html">Guilds</a></li>
-<li><a href="sponsorship.html">Sponsorship</a></li>
-<li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
-<li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
+                    <li><a href="ranklist.html">Ranklist</a></li>
+                    <li><a href="guilds.html">Guilds</a></li>
+                    <li><a href="sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
+                    <li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
                 </ul>
+
             </nav>
+
         </div>
     </header>
 
-   <!-- Conversion Calculator Section -->
+    <!-- Conversion Calculator -->
 
-<section class="conversion-page">
+    <section class="conversion-page">
 
-    <div class="conversion-container">
+        <div class="conversion-container">
 
-        <div class="conversion-title">
-            Conversion Calculator
-        </div>
-
-        <!-- Coins to RP -->
-        <div class="conversion-row">
-
-            <div class="conversion-section">
-                <div class="conversion-label">Coins</div>
-
-                <input 
-                    type="number" 
-                    id="coinsInput" 
-                    class="conversion-input"
-                    oninput="convertCoins()"
-                >
+            <div class="conversion-title">
+                Conversion Calculator
             </div>
 
-            <div class="conversion-arrow">>>></div>
+            <!-- Coins to RP -->
 
-            <div class="conversion-section">
-                <div class="conversion-label">Rank Points</div>
+            <div class="conversion-row">
 
-                <div class="conversion-output" id="rpOutput">
-                    0
+                <div class="conversion-section">
+
+                    <div class="conversion-label">
+                        Coins
+                    </div>
+
+                    <input
+                        type="number"
+                        id="coinsInput"
+                        class="conversion-input"
+                        oninput="convertCoins()"
+                    >
+
                 </div>
-            </div>
 
-        </div>
-
-        <!-- Pay Points to Coins -->
-        <div class="conversion-row">
-
-            <div class="conversion-section">
-                <div class="conversion-label">Pay Points</div>
-
-                <input 
-                    type="number" 
-                    id="payInput" 
-                    class="conversion-input"
-                    oninput="convertPayPoints()"
-                >
-            </div>
-
-            <div class="conversion-arrow">>>></div>
-
-            <div class="conversion-section">
-                <div class="conversion-label">Coins</div>
-
-                <div class="conversion-output" id="coinOutput">
-                    0
+                <div class="conversion-arrow">
+                    >>>
                 </div>
+
+                <div class="conversion-section">
+
+                    <div class="conversion-label">
+                        Rank Points
+                    </div>
+
+                    <div
+                        class="conversion-output"
+                        id="rpOutput">
+
+                        0
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Pay Points to Coins -->
+
+            <div class="conversion-row">
+
+                <div class="conversion-section">
+
+                    <div class="conversion-label">
+                        Pay Points
+                    </div>
+
+                    <input
+                        type="number"
+                        id="payInput"
+                        class="conversion-input"
+                        oninput="convertPayPoints()"
+                    >
+
+                </div>
+
+                <div class="conversion-arrow">
+                    >>>
+                </div>
+
+                <div class="conversion-section">
+
+                    <div class="conversion-label">
+                        Coins
+                    </div>
+
+                    <div
+                        class="conversion-output"
+                        id="coinOutput">
+
+                        0
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="conversion-buttons">
+
+                <button onclick="resetCalculator()">
+                    RESET
+                </button>
+
             </div>
 
         </div>
 
-        <div class="conversion-buttons">
-            <button onclick="resetCalculator()">
-                RESET
-            </button>
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
     <!-- Footer -->
+
     <footer>
+
         <div class="container">
+
             <div class="footer-content">
+
                 <div class="footer-brand">
                     <h4>Dark Dragon Army</h4>
                     <p>Medieval Habbo Agency</p>
                 </div>
-                
+
                 <div class="footer-links">
+
                     <h5>Navigation</h5>
+
                     <ul>
                         <li><a href="/index.html">Home</a></li>
                         <li><a href="/ranklist.html">Ranklist</a></li>
                         <li><a href="/guilds.html">Guilds</a></li>
-                        <li><a href="sponsorship.html">Sponsorship</a></li>
+                        <li><a href="/sponsorship.html">Sponsorship</a></li>
                     </ul>
+
                 </div>
-                
+
                 <div class="footer-links">
+
                     <h5>External</h5>
+
                     <ul>
                         <li><a href="https://dda.habboportal.xyz/" target="_blank">Portal</a></li>
                         <li><a href="https://discord.gg/KZ64EBJA" target="_blank">Discord</a></li>
                         <li><a href="mailto:darkdragonarmy782@gmail.com">Email Us</a></li>
                     </ul>
+
                 </div>
+
             </div>
-            
+
             <div class="footer-disclaimer">
-                <p>This website is not affiliated with, endorsed, sponsored, or specifically approved by the Sulake Corporation Oy or its affiliates.</p>
-                <p>darkdragonarmy.ca may use the trademarks and other intellectual property of Sulake Corporation Oy or its affiliates, which is permitted under the Fan Site Policy.</p>
-                <p class="mt-2"><strong>Copyright © Dark Dragon Army 2026 - All Rights Reserved</strong></p>
+
+                <p>
+                    This website is not affiliated with, endorsed,
+                    sponsored, or specifically approved by the
+                    Sulake Corporation Oy or its affiliates.
+                </p>
+
+                <p>
+                    darkdragonarmy.ca may use the trademarks and
+                    other intellectual property of Sulake Corporation Oy
+                    or its affiliates, which is permitted under the
+                    Fan Site Policy.
+                </p>
+
+                <p class="mt-2">
+                    <strong>
+                        Copyright © Dark Dragon Army 2026
+                        - All Rights Reserved
+                    </strong>
+                </p>
+
             </div>
+
         </div>
+
     </footer>
 
+    <!-- JAVASCRIPT -->
+
     <script>
+
         function toggleNav() {
             document.getElementById('main-nav').classList.toggle('active');
         }
+
+        function convertCoins() {
+
+            let coins =
+                document.getElementById("coinsInput").value;
+
+            let rp = coins * 3000;
+
+            document.getElementById("rpOutput").innerText =
+                Number(rp).toLocaleString();
+
+        }
+
+        function convertPayPoints() {
+
+            let pay =
+                document.getElementById("payInput").value;
+
+            let coins = pay / 1000;
+
+            document.getElementById("coinOutput").innerText =
+                Number(coins).toFixed(3);
+
+        }
+
+        function resetCalculator() {
+
+            document.getElementById("coinsInput").value = "";
+            document.getElementById("payInput").value = "";
+
+            document.getElementById("rpOutput").innerText = "0";
+            document.getElementById("coinOutput").innerText = "0";
+
+        }
+
     </script>
 
+</body>
 
-</body></html>
+</html>
+```
