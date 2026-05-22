@@ -276,6 +276,171 @@ nav a.active {
 
 
 /* =========================================
+   HERO AVATARS
+========================================= */
+
+.hero-avatars {
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 1rem;
+
+    flex-wrap: nowrap;
+
+    width: 100%;
+
+    margin: 3rem auto;
+
+}
+
+/* =========================================
+   AVATAR CARD
+========================================= */
+
+.avatar-container {
+
+    position: relative;
+
+    width: 220px;
+
+    height: 320px;
+
+    padding: 1.2rem 1rem;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20,20,40,0.96) 0%,
+            rgba(10,10,25,0.96) 100%
+        );
+
+    border: 2px solid var(--color-border);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 12px rgba(212,175,55,0.12);
+
+    transition: var(--transition-smooth);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+}
+
+/* =========================================
+   ACTIVE AVATAR HOVER
+========================================= */
+
+.avatar-container:not(.placeholder):hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--color-fire);
+
+    box-shadow:
+        0 0 20px rgba(255,69,0,0.35);
+
+}
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+.avatar-container.placeholder {
+
+    border-color: var(--color-border);
+
+    box-shadow: none;
+
+}
+
+.avatar-container.placeholder:hover {
+
+    border-color: var(--color-gold);
+
+    box-shadow:
+        0 0 15px rgba(212,175,55,0.35);
+
+}
+
+/* =========================================
+   AVATAR IMAGE
+========================================= */
+
+.avatar-container img {
+
+    display: block;
+
+    width: auto;
+
+    height: 190px;
+
+    max-width: 100%;
+
+    margin: 0 auto 0.8rem auto;
+
+    image-rendering: pixelated;
+
+}
+
+/* =========================================
+   AVATAR NAME
+========================================= */
+
+.avatar-name {
+
+    font-family: var(--font-heading);
+
+    color: var(--color-gold);
+
+    font-size: 1.05rem;
+
+    text-align: center;
+
+    min-height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    line-height: 1.2;
+
+    width: 100%;
+
+    margin-top: auto;
+
+}
+
+/* =========================================
+   AVATAR TITLE
+========================================= */
+
+.avatar-title {
+
+    font-family: var(--font-body);
+
+    color: var(--color-fire);
+
+    font-size: 0.9rem;
+
     text-transform: uppercase;
 
     letter-spacing: 0.15em;
@@ -354,6 +519,9 @@ nav a.active {
     }
 
 }
+
+
+
 .hero-logo {
     width: 320px;          /* main size */
     max-width: 90%;        /* mobile safety */
