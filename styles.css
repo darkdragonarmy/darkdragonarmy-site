@@ -731,7 +731,65 @@ nav a.active {
     overflow: hidden;
 
 }
+/* HR Ranklist specific */
+.hr-section {
+    margin-bottom: 4rem;
+}
 
+/* =========================
+   HR SINGLE RANK ROWS
+========================= */
+
+.hr-section .rank-list {
+
+    grid-template-columns: 1fr;
+
+    max-width: 1000px;
+
+    margin: 0 auto 3rem auto;
+
+}
+
+/* slimmer HR cards */
+.hr-section .rank-item {
+
+    min-height: 70px;
+
+    padding: 1rem 1.5rem;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 1rem;
+
+}
+
+/* HR rank number */
+.hr-section .rank-number {
+
+    margin-bottom: 0;
+
+    font-size: 1.1rem;
+
+}
+
+/* HR RP text */
+.hr-section .rank-points {
+
+    margin-top: 0;
+
+    padding-top: 0;
+
+    width: auto;
+
+    font-size: 1rem;
+
+}
 /* =========================
    RANK NUMBER
 ========================= */
