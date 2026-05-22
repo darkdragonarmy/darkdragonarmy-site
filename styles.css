@@ -680,28 +680,205 @@ nav a.active {
     right: 1.5rem;
 }
 
+/* =========================
+   RANK GRID
+========================= */
+
 .rank-list {
+
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.8rem;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 1rem;
+
+    width: 100%;
+
+    margin-bottom: 2rem;
+
 }
+
+/* =========================
+   RANK CARD
+========================= */
 
 .rank-item {
+
     background: var(--color-bg-card);
+
     border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: 1rem;
+
+    border-radius: 6px;
+
+    padding: 1.2rem 1rem;
+
+    min-height: 150px;
 
     display: flex;
-    flex-direction: column;   /* 🔥 THIS is the key fix */
-    align-items: center;      /* center everything */
 
-    gap: 0.2rem;
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
 
     transition: var(--transition-smooth);
-    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
 }
 
+/* =========================
+   RANK NUMBER
+========================= */
+
+.rank-number {
+
+    font-family: var(--font-heading);
+
+    font-size: 1rem;
+
+    color: var(--color-fire);
+
+    margin-bottom: 0.5rem;
+
+}
+
+/* =========================
+   RANK NAME
+========================= */
+
+.rank-name {
+
+    color: var(--color-text-primary);
+
+    font-size: 1.05rem;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    min-height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+/* =========================
+   RP AMOUNT
+========================= */
+
+.rank-points {
+
+    margin-top: auto;
+
+    padding-top: 0.8rem;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: var(--color-text-secondary);
+
+    font-style: italic;
+
+    font-size: 0.95rem;
+
+}
+
+/* =========================
+   FIRE HOVER
+========================= */
+
+.rank-item:hover {
+
+    border-color: var(--color-fire);
+
+    background: var(--color-bg-hover);
+
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.35);
+
+}
+
+.rank-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 120%;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-fire),
+        var(--color-gold),
+        transparent
+    );
+
+    opacity: 0;
+
+}
+
+.rank-item:hover::before {
+
+    opacity: 1;
+
+    animation: cardSweep 1.5s linear infinite;
+
+}
+
+.rank-item:hover .rank-points {
+
+    color: var(--color-fire);
+
+    text-shadow: 0 0 8px rgba(255, 69, 0, 0.4);
+
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .rank-list {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .rank-list {
+
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+}
 .rank-item:hover .rank-points {
     color: var(--color-fire);
     text-shadow: 0 0 8px rgba(255, 69, 0, 0.4);
