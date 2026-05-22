@@ -2523,3 +2523,12 @@ html {
 section {
     scroll-margin-top: 120px;
 }
+/* =========================
+   HALL OF FAME AVATAR CENTER FIX
+========================= */
+
+.hof-featured .avatar-container,
+.hof-grid .avatar-container {
+    margin-left: auto;
+    margin-right: auto;
+}
