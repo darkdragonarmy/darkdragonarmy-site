@@ -276,107 +276,23 @@ nav a.active {
 
 
 /* =========================================
-   HERO AVATARS
-========================================= */
-
-.hero-avatars {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: stretch;
-
-    gap: 1rem;
-
-    flex-wrap: nowrap;
-
-    width: 100%;
-
-    margin: 3rem auto;
-
-}
-
-/* =========================================
-   AVATAR CARD
-========================================= */
-
-
-
-/* =========================================
-   HOVER EFFECT
-========================================= */
-
-.avatar-container:hover {
-
-    transform: translateY(-5px);
-
-    border-color: var(--color-fire);
-
-    box-shadow:
-        0 0 20px rgba(255,69,0,0.35);
-
-}
-
-/* =========================================
-   AVATAR IMAGES
-========================================= */
-
-.avatar-container img {
-
-    display: block;
-
-    width: auto;
-
-    height: 110px;
-
-    max-width: 100%;
-
-    margin: 0 auto 1rem auto;
-
-    image-rendering: pixelated;
-
-}
-
-/* =========================================
-   AVATAR NAME
-========================================= */
-
-.avatar-name {
-
-    font-family: var(--font-heading);
-
-    color: var(--color-gold);
-
-    margin-top: auto;
-
-    font-size: 1rem;
-
-    text-align: center;
-
-}
-
-/* =========================================
-   AVATAR TITLE
-========================================= */
-
-.avatar-title {
-
-    font-family: var(--font-body);
-
-    color: var(--color-fire);
-
-    font-size: 0.85rem;
-
     text-transform: uppercase;
 
     letter-spacing: 0.15em;
 
     font-style: italic;
 
-    margin-top: 0.35rem;
-
     text-align: center;
+
+    min-height: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
 
     text-shadow:
         0 0 10px rgba(255,69,0,0.4);
@@ -387,7 +303,7 @@ nav a.active {
    TABLET
 ========================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
 
     .hero-avatars {
 
@@ -411,9 +327,9 @@ nav a.active {
 
     .avatar-container {
 
-        width: 140px;
+        width: 160px;
 
-        min-height: 210px;
+        height: 260px;
 
         padding: 0.7rem;
 
@@ -421,79 +337,22 @@ nav a.active {
 
     .avatar-container img {
 
-        height: 85px;
+        height: 120px;
 
     }
 
     .avatar-name {
 
-        font-size: 0.75rem;
+        font-size: 0.8rem;
 
     }
 
     .avatar-title {
 
-        font-size: 0.65rem;
+        font-size: 0.7rem;
 
     }
 
-}
-
-
-
-
-.avatar-container {
-    position: relative;
-    padding: 1rem;
-    background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-card) 100%);
-    border: 2px solid var(--color-border);
-    border-radius: 10px;
-    box-shadow: var(--shadow-glow);
-    transition: var(--transition-smooth);
-}
-/* ACTIVE AVATAR (HAS IMAGE) */
-.avatar-container:not(.placeholder):hover {
-    border-color: var(--color-gold);
-    box-shadow: 0 0 18px rgba(212,175,55,0.4);
-}
-
-/* EMPTY AVATAR */
-.avatar-container.placeholder {
-    border-color: var(--color-border);
-    box-shadow: none;
-}
-.avatar-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
-}
-
-.avatar-container img {
-    display: block;
-    width: 35%;        /* 🔥 smaller avatars */
-    max-width: 80px;   /* 🔥 prevents them from getting big */
-    height: auto;
-    margin: 0 auto;
-    image-rendering: pixelated;
-}
-
-.avatar-name {
-    font-family: var(--font-heading);
-    color: var(--color-gold);
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-.avatar-title {
-    font-family: var(--font-body);
-    color: var(--color-fire);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-style: italic;
-    margin-top: 0.25rem;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(255, 69, 0, 0.4);
 }
 .hero-logo {
     width: 320px;          /* main size */
