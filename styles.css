@@ -274,31 +274,7 @@ nav a.active {
     margin-bottom: 2rem;
 }
 
-.hero-avatars {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin: 3rem 0;
-    width: 100%;
-}
-
-@media (max-width: 600px) {
-    .hero-avatars {
-        gap: 0.5rem;
-    }
-
-    .avatar-container {
-        padding: 0.5rem;
-    }
-
-    .avatar-name {
-        font-size: 0.7rem;
-    }
-
-    .avatar-title {
-        font-size: 0.65rem;
-    }
-}
+.hero-avatars { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin: 3rem auto; width: 100%; max-width: 1400px; justify-items: center; align-items: start; } /* ========================================= TABLET ========================================= */ @media (max-width: 1000px) { .hero-avatars { grid-template-columns: repeat(3, 1fr); } } /* ========================================= MOBILE ========================================= */ @media (max-width: 600px) { .hero-avatars { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; } .avatar-container { padding: 0.5rem; } .avatar-name { font-size: 0.7rem; } .avatar-title { font-size: 0.65rem; } }
 
 
 
