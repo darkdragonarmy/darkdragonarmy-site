@@ -2546,3 +2546,15 @@ section {
     transition: 0.2s ease;
     cursor: pointer;
 }
+.ranklist-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .ranklist-sections {
+        grid-template-columns: 1fr;
+    }
+}
