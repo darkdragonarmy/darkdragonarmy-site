@@ -2535,3 +2535,14 @@ section {
     margin-left: auto;
     margin-right: auto;
 }
+.game-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.game-link:hover .game-card {
+    transform: translateY(-4px);
+    transition: 0.2s ease;
+    cursor: pointer;
+}
