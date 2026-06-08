@@ -113,15 +113,38 @@ From competitive games to immersive experiences, this unit brings life and excit
     <h3>💴  DDA Daily Tasks</h3>
     <p>A place to help you achieve those daily tasks and earn your daily duckets</p>
   </div>
+
+  <a href="https://www.habbo.com/room/80064366" target="_blank" class="game-link">
+<div class="game-card">
+    <h3>🏰  In Castle Games</h3>
+    <p>Mini versions of Balloon Game, Fridge Game and 4 Person Duels.</p>
+  </div>
+</div>	
 </div>
-		
+
+	
 <div class="host-access">
   <h2>🔒 Host Access ONLY</h2>
   <p>Authorized hosts may access official documents and event commands below.</p>
+    <input type="password" id="hostPassword" placeholder="Enter Host Password">
+	
+	
 
+    <p><button class="btn-primary" onclick="checkHostPassword()">
+        Access Host Resources
+    </button></p>
+	
+    <div id="hostLinks" style="display:none; margin-top:20px;">
   <a href="https://drive.google.com/file/d/1cKuL5CmopahVEsX0701BML6LN8RwWIBV/view?usp=drive_link" target="_blank" class="btn-primary">
-    Access Host Documents
+    Host Documents
   </a>
+<br><br>
+
+        <a href="https://forms.gle/8dzRe6DoPnFVpRcr8"
+           target="_blank"
+           class="btn-primary">
+           Event Submission Form
+        </a>
 </div>
  <!-- Footer -->
     <footer>
@@ -164,5 +187,21 @@ From competitive games to immersive experiences, this unit brings life and excit
             document.getElementById('main-nav').classList.toggle('active');
         }
     </script>
+<script>
+function checkHostPassword() {
+
+    const password = document.getElementById("hostPassword").value;
+
+    if(password === "ddaevents2026") {
+
+        document.getElementById("hostLinks").style.display = "block";
+
+    } else {
+
+        alert("Incorrect Password");
+
+    }
+}
+</script>
 </body>
 </html>
