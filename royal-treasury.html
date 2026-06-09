@@ -73,9 +73,18 @@
 
 	.pay-scale-main{
 
-    max-width:1200px;
+    width:100%;
 
-    margin:0 auto 50px auto;
+    margin:0 0 50px 0;
+
+    text-align:center;
+}
+
+.pay-scale-main h3{
+
+    text-align:center !important;
+
+    width:100%;
 }
 
 .pay-scale-main h4{
@@ -87,12 +96,38 @@
     margin-bottom:10px;
 }
 
-.pay-scale-main h4:first-child{
-
-    margin-top:0;
-}
 .treasury-section{
     margin-bottom:50px;
+}
+.treasury-title::after {
+    content: '';
+
+    display: block;
+
+    width: 120px;
+
+    height: 3px;
+
+    margin: 15px auto 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-gold),
+        transparent
+    );
+}
+	.card.pay-scale-main h3{
+
+    text-align:center !important;
+
+    display:block;
+
+    width:100%;
+
+    margin-left:auto;
+
+    margin-right:auto;
 }
 	</style>
 </head>
@@ -162,42 +197,37 @@
 
 <!-- PAY SCALE -->
 
-
 <div class="card pay-scale-main">
-
     <h3>⚖️ DDA Pay Scale</h3>
 
     <div class="pay-row">
-        <h4>Tier 1 & Tier 2</h4>
+        <h4><strong>Tier 1 &amp; Tier 2</strong></h4>
         <p>1 Credit/hr • 2,000 RP/hr</p>
-        <p>DG - Initiates & Soldiers</p>
-        <p>RC - Citizens & Court Workers</p>
+
     </div>
 
     <div class="pay-row">
-        <h4>Tier 3, Tier 4 & Tier 5</h4>
+        <h4><strong>Tier 3, Tier 4 &amp; Tier 5</strong></h4>
         <p>2 Credits/hr • 4,000 RP/hr</p>
-        <p>DG - Knights, Commanders, Wardens</p>
-        <p>RC - Officials, Nobility, High Court</p>
+      
     </div>
 
     <div class="pay-row">
-        <h4>Tier 6, Tier 7, Tier 8 & Tier 9</h4>
-        <p>3 Credits/hr • 6,000 RP/hr</p>
-        <p>DG - Templars, Elders, Sovereigns, Eternal Flame</p>
-        <p>RC - Crown Officials, Elder Court, Sovereign Court, Eternal Court</p>
+        <h4><strong>Tier 6, Tier 7, Tier 8 &amp; Tier 9</strong></h4>
+<p>3 Credits/hr • 6,000 RP/hr</p>
+
     </div>
 
     <div class="pay-row">
-        <h4>TiC, 5iC, 4iC & 3iC</h4>
+        <h4><strong>TiC, 5iC, 4iC &amp; 3iC</strong></h4>
         <p>4 Credits/hr • 8,000 RP/hr</p>
-        <p>Trial iC, 5iC, 4iC, 3iC</p>
+      
     </div>
 
     <div class="pay-row">
-        <h4>2iC & 1iC</h4>
+        <h4><strong>2iC &amp; 1iC</strong></h4>
         <p>5 Credits/hr • 10,000 RP/hr</p>
-        <p>2iC, 1iC</p>
+       
     </div>
 
 </div>
