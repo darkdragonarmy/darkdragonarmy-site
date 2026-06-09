@@ -14,259 +14,198 @@
 
     <style>
 
-       ```css id="70v6d6"
 /* =========================================
-   FIRE THEMED CONVERSION CALCULATOR
+   DDA CONVERSION CALCULATOR
 ========================================= */
 
-.conversion-page{ width:100%; min-height:100vh; display:flex; justify-content:center; align-items:center; padding:180px 20px 120px; margin:0 auto; }
-
-.conversion-container{ width:100%; max-width:950px; margin:0 auto; background: linear-gradient( 180deg, rgba(15,0,0,0.95) 0%, rgba(35,0,0,0.96) 50%, rgba(15,0,0,0.95) 100% ); border:2px solid #8b0000; position:relative; padding:55px; overflow:hidden; box-shadow: 0 0 10px rgba(139,0,0,0.8), 0 0 25px rgba(139,0,0,0.6), 0 0 40px rgba(90,0,0,0.5); }
-
-/* =========================================
-   ANIMATED FIRE BORDER
-========================================= */
-
-.conversion-container::before{
-    content:"";
-    position:absolute;
-    inset:-2px;
-    border:2px solid red;
-    pointer-events:none;
-
-    animation:borderFire 2s linear infinite;
+.conversion-page{
+    width:100%;
+    padding:180px 20px 100px;
 }
 
-@keyframes borderFire{
+.conversion-container{
+    width:80%;
+    max-width:1200px;
+    margin:0 auto;
 
-    0%{
-        box-shadow:
-            0 0 5px red,
-            0 0 10px darkred;
-    }
+    background:linear-gradient(
+        145deg,
+        var(--color-bg-card),
+        var(--color-bg-secondary)
+    );
 
-    50%{
-        box-shadow:
-            0 0 12px red,
-            0 0 25px orangered,
-            0 0 40px darkred;
-    }
+    border:1px solid var(--color-border);
+    border-radius:10px;
 
-    100%{
-        box-shadow:
-            0 0 5px red,
-            0 0 10px darkred;
-    }
+    padding:50px;
 
+    box-shadow:var(--shadow-card);
 }
 
-/* =========================================
-   TITLE BAR
-========================================= */
+.conversion-title{
+    text-align:center;
+    font-family:var(--font-heading);
+    color:var(--color-gold);
+    font-size:2.5rem;
+    margin-bottom:40px;
+}
 
-.conversion-title{ position:relative; background: linear-gradient( 180deg, #5c0000 0%, #7a0000 40%, #8b0000 70%, #3a0000 100% ); color:white; text-align:center; font-size:46px; font-weight:bold; letter-spacing:2px; padding:18px; margin-bottom:80px; border:2px solid #b30000; text-shadow: 0 0 5px rgba(255,255,255,0.2), 0 0 10px red; box-shadow: 0 0 15px rgba(139,0,0,0.8), inset 0 0 15px rgba(255,255,255,0.08); }
-/* =========================================
-   ROWS
-========================================= */
+.calculator-block{
+    margin-top:40px;
+    padding-top:40px;
+    border-top:1px solid var(--color-border-gold);
+}
+
+.calculator-heading{
+	text-shadow:none;
+    text-align:center;
+    color:var(--color-gold);
+    font-family:var(--font-heading);
+    font-size:1.4rem;
+    margin-bottom:30px;
+}
 
 .conversion-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:30px;
-    margin-bottom:80px;
+    display:grid;
+    grid-template-columns:1fr 120px 1fr;
+    gap:20px;
+    align-items:end;
+    margin-bottom:25px;
 }
 
 .conversion-section{
-    flex:1;
+    display:flex;
+    flex-direction:column;
 }
 
 .conversion-label{
-    color:white;
+    color:var(--color-text-primary);
+    font-family:var(--font-heading);
     text-align:center;
-
-    font-size:40px;
-    font-weight:bold;
-
-    margin-bottom:20px;
-
-    text-shadow:
-        0 0 5px red,
-        0 0 10px darkred;
+    margin-bottom:10px;
+    font-size:1.05rem;
 }
 
-/* =========================================
-   INPUTS
-========================================= */
+.conversion-input,
+.conversion-output{
+
+    width:100%;
+    height:65px;
+
+    border:1px solid var(--color-border);
+
+    border-radius:6px;
+
+    background:var(--color-bg-dark);
+
+    font-size:1.3rem;
+
+    text-align:center;
+}
 
 .conversion-input{
 
-    width:100%;
-    height:68px;
+    color:var(--color-text-primary);
+}
 
-    border:2px solid #ff3300;
+.conversion-output{
 
-    background:
-        linear-gradient(
-            180deg,
-            #f5f5f5 0%,
-            #d7d7d7 100%
-        );
+    color:var(--color-gold);
 
-    color:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    font-size:32px;
-    text-align:center;
     font-weight:bold;
-
-    transition:0.3s;
-
-    box-shadow:
-        inset 0 0 10px rgba(0,0,0,0.2);
 }
 
 .conversion-input:focus{
 
     outline:none;
 
-    border-color:#ff9900;
+    border-color:var(--color-gold);
 
     box-shadow:
-        0 0 10px rgba(255,120,0,0.8),
-        0 0 20px rgba(255,0,0,0.5);
-
+        0 0 10px rgba(212,175,55,0.3);
 }
-
-/* =========================================
-   OUTPUTS
-========================================= */
-
-.conversion-output{
-
-    width:100%;
-    height:68px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ececec 0%,
-            #cfcfcf 100%
-        );
-
-    border:2px solid #ff3300;
-
-    color:black;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:32px;
-    font-weight:bold;
-
-    box-shadow:
-        inset 0 0 10px rgba(0,0,0,0.2);
-}
-
-/* =========================================
-   ARROWS
-========================================= */
 
 .conversion-arrow{
 
-    color:white;
+    display:flex;
 
-    font-size:58px;
+    align-items:center;
+    justify-content:center;
+
+    height:65px;
+
+    color:var(--color-fire);
+
+    font-size:2rem;
+
     font-weight:bold;
-
-    text-shadow:
-        0 0 5px red,
-        0 0 10px orangered,
-        0 0 20px darkred;
-
-    animation:arrowPulse 1.5s infinite alternate;
 }
 
-@keyframes arrowPulse{
+.conversion-buttons{
 
-    from{
-        transform:scale(1);
-    }
+    text-align:center;
 
-    to{
-        transform:scale(1.08);
-    }
-
+    margin-top:40px;
 }
 
-/* =========================================
-   BUTTON
-========================================= */
+.conversion-buttons button{
 
-.conversion-buttons{ width:100%; display:flex; justify-content:center; align-items:center; margin-top:20px; } .conversion-buttons button{ position:relative; background: linear-gradient( 180deg, #5c0000 0%, #8b0000 50%, #3a0000 100% ); color:white; border:2px solid #b30000; padding:16px 50px; font-size:26px; font-weight:bold; cursor:pointer; transition:0.3s; text-shadow: 0 0 5px rgba(255,255,255,0.2), 0 0 10px red; box-shadow: 0 0 10px rgba(139,0,0,0.8), 0 0 25px rgba(90,0,0,0.7); overflow:hidden; } .conversion-buttons button:hover{ transform:scale(1.05); background: linear-gradient( 180deg, #7a0000 0%, #b30000 50%, #5c0000 100% ); box-shadow: 0 0 15px rgba(255,0,0,0.9), 0 0 30px rgba(139,0,0,0.8); }
+    padding:1rem 2rem;
 
-/* FIRE SHIMMER */
+    font-family:var(--font-heading);
 
-.conversion-buttons button::before{
+    color:var(--color-gold);
 
-    content:"";
+    background:transparent;
 
-    position:absolute;
+    border:2px solid var(--color-gold);
 
-    top:0;
-    left:-120%;
+    border-radius:6px;
 
-    width:100%;
-    height:100%;
+    cursor:pointer;
 
-    background:
-        linear-gradient(
-            120deg,
-            transparent,
-            rgba(255,255,255,0.35),
-            transparent
-        );
-
-    transition:0.5s;
-}
-
-.conversion-buttons button:hover::before{
-    left:120%;
+    transition:var(--transition-smooth);
 }
 
 .conversion-buttons button:hover{
 
-    transform:scale(1.06);
+    background:var(--color-gold);
 
-    box-shadow:
-        0 0 15px rgba(255,120,0,0.9),
-        0 0 30px rgba(255,0,0,0.7);
-
+    color:black;
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+    margin:0;
+}
+
+input[type=number]{
+    -moz-appearance:textfield;
+}
 
 @media(max-width:768px){
 
+    .conversion-container{
+        width:95%;
+        padding:25px;
+    }
+
     .conversion-row{
-        flex-direction:column;
+        grid-template-columns:1fr;
     }
 
     .conversion-arrow{
         transform:rotate(90deg);
+        height:auto;
     }
-
-    .conversion-title{
-        font-size:34px;
-    }
-
 }
-```
 
-
-    </style>
+</style>
 
 </head>
 
@@ -314,107 +253,243 @@
 
     <!-- Conversion Calculator -->
 
-    <section class="conversion-page">
+ <section class="conversion-page">
 
-        <div class="conversion-container">
+<div class="conversion-container">
 
-            <div class="conversion-title">
-                Conversion Calculator
-            </div>
+    <div class="conversion-title">
+        Conversion Calculator
+    </div>
+<div style="text-align:center;color:var(--color-text-secondary);margin-bottom:20px;">
+    Convert Coins, Pay Points, Hours Worked and Rank Points
+</div>
+    <!-- HOURS CALCULATOR -->
 
-            <!-- Coins to RP -->
+    <div class="calculator-block">
 
-            <div class="conversion-row">
+        <div class="calculator-heading">
+        Hours&nbsp; to Coins &amp; Rank Points Calculator</div>
 
-                <div class="conversion-section">
+        <div class="conversion-row">
 
-                    <div class="conversion-label">
-                        Coins
-                    </div>
+            <div class="conversion-section">
 
-                    <input
-                        type="number"
-                        id="coinsInput"
-                        class="conversion-input"
-                        oninput="convertCoins()"
-                    >
-
+                <div class="conversion-label">
+                    Hours Worked
                 </div>
 
-                <div class="conversion-arrow">
-                    >>>
-                </div>
-
-                <div class="conversion-section">
-
-                    <div class="conversion-label">
-                        Rank Points
-                    </div>
-
-                    <div
-                        class="conversion-output"
-                        id="rpOutput">
-
-                        0
-
-                    </div>
-
-                </div>
+                <input
+                    type="number"
+                    id="hoursWorked"
+                    class="conversion-input"
+                    placeholder="3.75"
+                    step="0.01"
+                    oninput="calculateHours()">
 
             </div>
 
-            <!-- Pay Points to Coins -->
+            <div class="conversion-section">
 
-            <div class="conversion-row">
-
-                <div class="conversion-section">
-
-                    <div class="conversion-label">
-                        Pay Points
-                    </div>
-
-                    <input
-                        type="number"
-                        id="payInput"
-                        class="conversion-input"
-                        oninput="convertPayPoints()"
-                    >
-
+                <div class="conversion-label">
+                    Pay Rate
                 </div>
 
-                <div class="conversion-arrow">
-                    >>>
-                </div>
+                <select
+                    id="payRate"
+                    class="conversion-input"
+                    onchange="calculateHours()">
 
-                <div class="conversion-section">
+                    <option value="1">1 Coin</option>
+                    <option value="2">2 Coins</option>
+                    <option value="3">3 Coins</option>
+                    <option value="4">4 Coins</option>
+                    <option value="5">5 Coins</option>
 
-                    <div class="conversion-label">
-                        Coins
-                    </div>
-
-                    <div
-                        class="conversion-output"
-                        id="coinOutput">
-
-                        0
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="conversion-buttons">
-
-                <button onclick="resetCalculator()">
-                    RESET
-                </button>
+                </select>
 
             </div>
 
         </div>
 
-    </section>
+        <div class="conversion-row">
+
+            <div class="conversion-section">
+
+                <div class="conversion-label">
+                    Coins Earned
+                </div>
+
+                <div class="conversion-output" id="hoursCoinsOutput">
+                    0.00
+                </div>
+
+            </div>
+
+            <div class="conversion-arrow">
+                >>>
+            </div>
+
+            <div class="conversion-section">
+
+                <div class="conversion-label">
+                    Rank Points Earned
+                </div>
+
+                <div class="conversion-output" id="hoursRpOutput">
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- COINS TO RP -->
+
+    <div class="calculator-block">
+
+        <div class="calculator-heading">
+            Coins To Rank Points
+        </div>
+
+        <div class="conversion-row">
+
+            <div class="conversion-section">
+
+                <div class="conversion-label">
+                    Coins
+                </div>
+
+                <input
+                    type="number"
+                    id="coinsInput"
+                    class="conversion-input"
+                    step="0.01"
+                    oninput="convertCoinsToRP()">
+
+            </div>
+
+            <div class="conversion-arrow">
+                >>>
+            </div>
+
+            <div class="conversion-section">
+
+                <div class="conversion-label">
+                    Rank Points
+                </div>
+
+                <div class="conversion-output" id="rpOutput">
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PAY POINTS TO COINS -->
+
+    <div class="calculator-block">
+
+        <div class="calculator-heading">
+            Pay Points To Coins
+        </div>
+
+        <div class="conversion-row">
+
+            <div class="conversion-section">
+
+                <div class="conversion-label">
+                    Pay Points
+                </div>
+
+                <input
+                    type="number"
+                    id="payPointsInput"
+                    class="conversion-input"
+                    oninput="convertPayPointsToCoins()">
+
+            </div>
+
+            <div class="conversion-arrow">
+                >>>
+            </div>
+
+            <div class="conversion-section">
+
+                <div class="conversion-label">
+                    Coins
+                </div>
+
+                <div class="conversion-output" id="coinsOutput">
+                    0.00
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- COINS TO PAY POINTS -->
+
+    <div class="calculator-block">
+
+        <div class="calculator-heading">
+            Coins To Pay Points
+        </div>
+
+        <div class="conversion-row">
+
+            <div class="conversion-section">
+
+                <div class="conversion-label">
+                    Coins
+                </div>
+
+                <input
+                    type="number"
+                    id="coinsToPayInput"
+                    class="conversion-input"
+                    step="0.01"
+                    oninput="convertCoinsToPayPoints()">
+
+            </div>
+
+            <div class="conversion-arrow">
+                >>>
+            </div>
+
+            <div class="conversion-section">
+
+                <div class="conversion-label">
+                    Pay Points
+                </div>
+
+                <div class="conversion-output" id="payPointsOutput">
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="conversion-buttons">
+
+        <button onclick="resetCalculator()">
+            RESET
+        </button>
+
+    </div>
+
+</div>
+
+</section>
 
     <!-- Footer -->
 
@@ -486,48 +561,83 @@
 
     <!-- JAVASCRIPT -->
 
-    <script>
+   <script>
 
-        function toggleNav() {
-            document.getElementById('main-nav').classList.toggle('active');
-        }
+function toggleNav() {
+    document.getElementById('main-nav').classList.toggle('active');
+}
 
-        function convertCoins() {
+function convertCoinsToRP() {
 
-            let coins =
-                document.getElementById("coinsInput").value;
+    let coins =
+        parseFloat(document.getElementById("coinsInput").value) || 0;
 
-            let rp = coins * 3000;
+    let rp = coins * 3000;
 
-            document.getElementById("rpOutput").innerText =
-                Number(rp).toLocaleString();
+    document.getElementById("rpOutput").innerText =
+        Math.round(rp).toLocaleString();
+}
 
-        }
+function convertPayPointsToCoins() {
 
-        function convertPayPoints() {
+    let payPoints =
+        parseFloat(document.getElementById("payPointsInput").value) || 0;
 
-            let pay =
-                document.getElementById("payInput").value;
+    let coins = payPoints / 1000;
 
-            let coins = pay / 1000;
+    document.getElementById("coinsOutput").innerText =
+        coins.toFixed(2);
+}
 
-            document.getElementById("coinOutput").innerText =
-                Number(coins).toFixed(3);
+function convertCoinsToPayPoints() {
 
-        }
+    let coins =
+        parseFloat(document.getElementById("coinsToPayInput").value) || 0;
 
-        function resetCalculator() {
+    let payPoints = coins * 1000;
 
-            document.getElementById("coinsInput").value = "";
-            document.getElementById("payInput").value = "";
+    document.getElementById("payPointsOutput").innerText =
+        Math.round(payPoints).toLocaleString();
+}
 
-            document.getElementById("rpOutput").innerText = "0";
-            document.getElementById("coinOutput").innerText = "0";
+function calculateHours() {
 
-        }
+    let hours =
+        parseFloat(document.getElementById("hoursWorked").value) || 0;
 
-    </script>
+    let rate =
+        parseInt(document.getElementById("payRate").value) || 1;
 
+    let coinsEarned = hours * rate;
+
+    let rankPointsPerHour = rate * 2000;
+
+    let rankPointsEarned =
+        hours * rankPointsPerHour;
+
+    document.getElementById("hoursCoinsOutput").innerText =
+        coinsEarned.toFixed(2);
+
+    document.getElementById("hoursRpOutput").innerText =
+        Math.round(rankPointsEarned).toLocaleString();
+}
+
+function resetCalculator() {
+
+    document.getElementById("coinsInput").value = "";
+    document.getElementById("payPointsInput").value = "";
+    document.getElementById("coinsToPayInput").value = "";
+    document.getElementById("hoursWorked").value = "";
+    document.getElementById("payRate").value = "1";
+
+    document.getElementById("rpOutput").innerText = "0";
+    document.getElementById("coinsOutput").innerText = "0.00";
+    document.getElementById("payPointsOutput").innerText = "0";
+    document.getElementById("hoursCoinsOutput").innerText = "0.00";
+    document.getElementById("hoursRpOutput").innerText = "0";
+}
+
+</script>
 </body>
 
 </html>
